@@ -1,0 +1,11 @@
+config:
+  study-name: ORION11
+  ctrl-arm-name: ORION11-placebo
+  trmt-arm-name: ORION11-inclisiran
+  num-boot: 100
+  compare-outputs: TRUE
+  onearm-sample-size: 808
+data:
+  input-ldc-data: confidential-data/ORION11  # confidential
+  vpop-desc: vpop-data/ORION11/ORION-11-subsample-margins.csv
+  simulation-data: vpop-data/ORION11/scalars-ORION11-validation.csv

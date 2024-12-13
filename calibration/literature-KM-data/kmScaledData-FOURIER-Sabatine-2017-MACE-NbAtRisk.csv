@@ -1,0 +1,15 @@
+time,nbAtRisk,Arm
+0,13780,FOURIER-placebo
+0.5,13449,FOURIER-placebo
+1,13142,FOURIER-placebo
+1.5,12288,FOURIER-placebo
+2,7944,FOURIER-placebo
+2.5,3893,FOURIER-placebo
+3,731,FOURIER-placebo
+0,13784,FOURIER-evolocumab
+0.5,13501,FOURIER-evolocumab
+1,13241,FOURIER-evolocumab
+1.5,12456,FOURIER-evolocumab
+2,8094,FOURIER-evolocumab
+2.5,3935,FOURIER-evolocumab
+3,724,FOURIER-evolocumab

@@ -1,0 +1,17 @@
+File name,Event name,Event time,Condition,Ref
+kmScaled-ODYSSEY-OUTCOMES-Schwartz-2018-MACE-FatalNonFatalMI-IndividualPatientData,isMI,obsTimeOfMI,,https://jinko.ai/as-cPfD-AdfQ
+kmScaled-ODYSSEY-OUTCOMES-Schwartz-2018-MACE-CvDeath-IndividualPatientData,isCvDeath,timeOfCvDeath,,https://jinko.ai/as-cxRE-hamU
+kmRawData-ODYSSEY-OUTCOMES-Jukema-2019-IscStroke-IndividualPatientData,isIscStroke,obsTimeOfIscStroke,,https://jinko.ai/as-MXIA-R90g
+kmScaled-ODYSSEY-OUTCOMES-Schwartz-2020-PAD-IndividualPatientData,isMajorAdverseLimbEvent,obsTimeOfMajorAdverseLimbEvent,,https://jinko.ai/as-AX39-GHEB
+kmRawData-ODYSSEY-OUTCOMES-Schwartz-2021-MACE-HighLDLcLowLpa-IndividualPatientData,isMACE,timeOfMACE,(ODYSSEY-OUTCOMES-placebo_baselineLDLcCorrectedMass >= 70) And (ODYSSEY-OUTCOMES-placebo_baselineLpaMass <= 13.7),https://jinko.ai/as-blXB-xTHJ
+kmRawData-ODYSSEY-OUTCOMES-Schwartz-2021-MACE-HighLDLcHighLpa-IndividualPatientData,isMACE,timeOfMACE,(ODYSSEY-OUTCOMES-placebo_baselineLDLcCorrectedMass >= 70) And (ODYSSEY-OUTCOMES-placebo_baselineLpaMass >= 13.7),https://jinko.ai/as-blXB-xTHJ
+kmRawData-ODYSSEY-OUTCOMES-Schwartz-2021-MACE-LowLDLcHighLpa-IndividualPatientData,isMACE,timeOfMACE,(ODYSSEY-OUTCOMES-placebo_baselineLDLcCorrectedMass <= 70) And (ODYSSEY-OUTCOMES-placebo_baselineLpaMass >= 13.7),https://jinko.ai/as-blXB-xTHJ
+kmRawData-ODYSSEY-OUTCOMES-Schwartz-2021-MACE-LowLDLcLowLpa-IndividualPatientData,isMACE,timeOfMACE,(ODYSSEY-OUTCOMES-placebo_baselineLDLcCorrectedMass <= 70) And (ODYSSEY-OUTCOMES-placebo_baselineLpaMass <= 13.7),https://jinko.ai/as-blXB-xTHJ
+kmScaled-ODYSSEY-OUTCOMES-Sinnaeve-2020-MACE-AgeBelow65-IndividualPatientData,isMACE,timeOfMACE,ageInit < 65,https://jinko.ai/as-d3iV-9BwN
+kmScaled-ODYSSEY-OUTCOMES-Sinnaeve-2020-MACE-AgeAbove65-IndividualPatientData,isMACE,timeOfMACE,ageInit >= 65,https://jinko.ai/as-d3iV-9BwN
+kmScaled-ODYSSEY-OUTCOMES-Sinnaeve-2020-MACE-AgeBelow75-IndividualPatientData,isMACE,timeOfMACE,ageInit < 75,https://jinko.ai/as-U11r-0VXI
+kmScaled-ODYSSEY-OUTCOMES-Sinnaeve-2020-MACE-AgeAbove75-IndividualPatientData,isMACE,timeOfMACE,ageInit >= 75,https://jinko.ai/as-U11r-0VXI
+kmScaled-ODYSSEY-OUTCOMES-Schwartz-2018-MACE-BaselineLDLBelow80-IndividualPatientData,isMACE,timeOfMACE,ODYSSEY-OUTCOMES-placebo_baselineLDLcUncorrectedMass < 80,https://jinko.ai/as-EjLh-dUDa
+kmScaled-ODYSSEY-OUTCOMES-Schwartz-2018-MACE-BaselineLDL80To100-IndividualPatientData,isMACE,timeOfMACE,(ODYSSEY-OUTCOMES-placebo_baselineLDLcUncorrectedMass >= 80) And (ODYSSEY-OUTCOMES-placebo_baselineLDLcUncorrectedMass < 100),https://jinko.ai/as-EjLh-dUDa
+kmScaled-ODYSSEY-OUTCOMES-Schwartz-2018-MACE-BaselineLDLAbove100-IndividualPatientData,isMACE,timeOfMACE,(ODYSSEY-OUTCOMES-placebo_baselineLDLcUncorrectedMass >= 100),https://jinko.ai/as-EjLh-dUDa
+kmRawData-ODYSSEY-OUTCOMES-Schwartz-2018-PrimaryEndPoint-IndividualPatientData,isMACE,timeOfMACE,,https://jinko.ai/as-WJ6W-rDwB/

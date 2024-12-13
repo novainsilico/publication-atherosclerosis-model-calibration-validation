@@ -1,0 +1,11 @@
+config:
+  study-name: IMPROVE-IT
+  ctrl-arm-name: IMPROVE-IT-placebo
+  trmt-arm-name: IMPROVE-IT-ezetimibe
+  num-boot: 100
+  compare-outputs: TRUE
+  onearm-sample-size: 9072
+data:
+  input-ldc-data: literature-data/IMPROVE-IT/
+  vpop-desc: vpop-data/IMPROVE-IT/IMPROVE-IT-subsample-margins.csv
+  simulation-data: vpop-data/IMPROVE-IT/scalars-IMPROVE-IT-validation.csv

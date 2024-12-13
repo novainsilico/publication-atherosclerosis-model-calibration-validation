@@ -1,0 +1,24 @@
+Subgroup,Category,Condition
+Sex,Male,isMaleSex == 1
+Sex,Females,isMaleSex == 0
+Age,Age below 65,ageInit < 65
+Age,Age 65-80,(ageInit >= 65)  And (ageInit < 80)
+Age,Age above 80,ageInit >= 80
+Diabetes,Diabetes,isDiabetes == 1
+Diabetes,No diabetes,isDiabetes == 0
+BloodPressure,Uncontrolled hypertension,isUncontrolledBloodPressure == 1
+BloodPressure,No uncontrolled hypertension,isUncontrolledBloodPressure == 0
+Smoker,Current smoker,isSmoking == 1
+Smoker,Not smoker,isSmoking == 0
+Prior stroke,Prior stroke,isPriorCbvd == 1
+Prior stroke,No prior stroke,isPriorCbvd == 0
+Prior PAD,Prior PAD,isPriorPad == 1
+Prior PAD,No prior PAD,isPriorPad == 0
+LDL-C baseline,LDL-C above 80,StudyName-placebo_baselineLDLcUncorrectedMass < 80 
+LDL-C baseline,LDL-C 80-100,(StudyName-placebo_baselineLDLcUncorrectedMass >= 80) And (StudyName-placebo_baselineLDLcUncorrectedMass < 100)
+LDL-C baseline,LDL-C below 100,StudyName-placebo_baselineLDLcUncorrectedMass >= 100
+eGFR,eGFR below 30,eGFR < 30
+eGFR,eGFR 30-60,(eGFR >= 30) And (eGFR < 60)
+eGFR,eGFR above 60,eGFR >= 60
+SMURF,SMURFs-less,StudyName-placebo_isSmurfLess == 1
+SMURF,Not SMURFs-less ,StudyName-placebo_isSmurfLess == 0

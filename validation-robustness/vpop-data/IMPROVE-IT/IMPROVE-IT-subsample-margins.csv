@@ -1,0 +1,52 @@
+Description,Variable,SummaryType,Target,Ref,TargetValue,AbsoluteTol,CrabbitTarget
+,,,,,,,
+Medical history,,,,,,,
+ASCVD(%),isASCVD,Proportion,100,,100,0,
+Polyvascular ASCVD(%),isPolyVD,Proportion,,,,,
+Coronary revasc(%),isPriorRevasc,Proportion,0,,0,0,
+Myocardial infarction(%),isPriorChd,Proportion,100,,100,5,
+Ischemic stroke(%),isPriorCbvd,Proportion,3.8,https://jinko.ai/as-1sWB-INf5,3.8,1.5,OK
+Symptomatic PAD(%),isPriorPad,Proportion,5.55,https://jinko.ai/as-cHYs-1BPK,5.55,1.5,OK
+Patient characteristics,,,,,,,
+Age - yr (mean (SD)),ageInit,MeanSD,63.6(9.75),https://jinko.ai/as-cHYs-1BPK,63.6,3,OK
+Male sex(%),isMaleSex,Proportion,75.7,https://jinko.ai/as-cHYs-1BPK,75.7,5,OK
+Body mass index - kg/m2 (mean (SD) or median (Q1-Q3)),BMI,MeanSD,28.3(5.2),https://jinko.ai/as-cHYs-1BPK,28.3,1,OK
+BMI 25-30 - %,isBMIBetween25And30,Proportion,,,,,
+BMI > 30 kg/m2 - %,isBMIAbove30,Proportion,,,,,
+Mean sitting SBP,systolicBloodPressure,MeanSD,,,,2,
+Mean sitting DBP,diastolicBloodPressure,MeanSD,,,,2,
+Atrial fibrillation,isAtrialFibrillation,Proportion,,,,1,
+Heart failure,isHeartFailure,Proportion,4.35,https://jinko.ai/as-cHYs-1BPK,4.35,1,OK
+CV risk factors(%),,,,,,,
+Current smoker,isSmoking,Proportion,33,https://jinko.ai/as-cHYs-1BPK,33,2,OK
+Diabetes,isDiabetes,Proportion,27.2,https://jinko.ai/as-cHYs-1BPK,27.2,2,OK
+Estimated HeFH,isHeFH,Proportion,6,,,2,
+Concomitant therapy(%),,,,,,,
+Aspirin/Antiplaquettaire,isAspirin,Proportion,97,https://jinko.ai/as-cHYs-1BPK,97,5,OK
+Rosuvastatin,IMPROVE-IT-placebo_isRVALLT,Proportion,,,,,
+Atorvastatin,IMPROVE-IT-placebo_isAVALLT,Proportion,,,,,
+Moderate-intensity statin,IMPROVE-IT-placebo_isModIntStatinMono,Proportion,,,,5,
+High-intensity statin,IMPROVE-IT-placebo_isHighIntStatin,Proportion,,,,5,
+Ezetimibe combination,IMPROVE-IT-placebo_isHighIntStatinEze,Proportion,,,,2.5,
+Biological measures at one year - mg/dL & mmol/L,,,,,,,
+LDL-C,IMPROVE-IT-placebo_valueLDLcUncorrectedMassY1,MedianIQR,67 (55-81),https://jinko.ai/as-9mT0-rQzc,67,8,OK
+TC,IMPROVE-IT-placebo_valueTotalCholMassY1,MedianIQR,142 (126-160),https://jinko.ai/as-9mT0-rQzc,142,8,OK
+Non-HDL-C,IMPROVE-IT-placebo_valueNonHDLCholMassY1,MedianIQR,93 (79-110),https://jinko.ai/as-9mT0-rQzc,,8,
+HDL-C,IMPROVE-IT-placebo_valueHDLcMassY1,MedianIQR,46 (39-55),https://jinko.ai/as-9mT0-rQzc,,4,
+Apo-B,IMPROVE-IT-placebo_valueApoBY1,MedianIQR,79 (67-93),,,8,
+Triglycerides,IMPROVE-IT-placebo_valueTriglyceridesMassY1,MedianIQR,116 (84-165),https://jinko.ai/as-9mT0-rQzc,116,10,OK
+Lipoprotein(a) - mg/dL,IMPROVE-IT-placebo_valueLpaSubstanceY1,MedianIQR,,,,10,
+PCSK9 - μg/L,IMPROVE-IT-placebo_valueFreePCSK9Y1,MeanSD,,,,20,
+Biological measures - mg/dL,,,,,,,
+hsCRP - mg/dL med. (range),IMPROVE-IT-placebo_valueCRPY1,MedianIQR,1.6 (0.8-3.6),https://jinko.ai/as-9mT0-rQzc,1.6,0.5,OK
+eGFR - mL/min/1.73 m2,eGFR,MeanSD,,,,5,
+Severe (eGFR < 30),isEgfrBelow30,Proportion,,,,,
+Moderate (eGFR 30-59),isEgfrBetween30And59,Proportion,,,,,
+CKD > G2 (eGFR<60),isEgfrBelow60,Proportion,,,,,
+Control arm outcomes (%),,,,,,,
+MACE (%),IMPROVE-IT-placebo_isMACE,Proportion,22.2,https://jinko.ai/as-d14i-YhnM,22.2,1,OK
+CV death (%),IMPROVE-IT-placebo_isCvDeath,Proportion,6.8,https://jinko.ai/as-d14i-YhnM,6.8,1,OK
+Myocardial infarction(%),IMPROVE-IT-placebo_isMI,Proportion,14.8,https://jinko.ai/as-d14i-YhnM,14.8,1,OK
+Ischemic stroke(%),IMPROVE-IT-placebo_isIscStroke,Proportion,4.1,https://jinko.ai/as-d14i-YhnM,4.1,1,OK
+Symptomatic PAD(%),IMPROVE-IT-placebo_isMajorAdverseLimbEvent,Proportion,,,,1,
+Fatal MI(%),IMPROVE-IT-placebo_isFatalMI,Proportion,0.7,https://jinko.ai/as-d14i-YhnM,0.7,1,OK

@@ -1,0 +1,17 @@
+Outcome,Reference,HR,LowBoundCI,HighBoundCI,Condition
+Cvdeath,Observed,0.88,0.74,1.05,Overall
+Cvdeath,Observed,0.93,0.74,1.18,Age<65
+Cvdeath,Observed,0.84,0.65,1.09,Age>=65
+Cvdeath,Observed,0.88,0.73,1.06,Age<75
+Cvdeath,Observed,0.91,0.58,1.43,Age>=75
+Cvdeath,Observed,0.96,0.71,1.29,LDLc<80
+Cvdeath,Observed,1.12,0.8,1.56,80<=LDLc<100
+Cvdeath,Observed,0.69,0.52,0.92,LDLc>=100
+Cvdeath,Simulated,0.9,0.77,1.06,Overall
+Cvdeath,Simulated,0.9,0.73,1.11,Age<65
+Cvdeath,Simulated,0.91,0.71,1.16,Age>=65
+Cvdeath,Simulated,0.9,0.76,1.07,Age<75
+Cvdeath,Simulated,0.93,0.57,1.51,Age>=75
+Cvdeath,Simulated,0.92,0.7,1.21,LDLc<80
+Cvdeath,Simulated,0.92,0.69,1.21,80<=LDLc<100
+Cvdeath,Simulated,0.87,0.65,1.16,LDLc>=100

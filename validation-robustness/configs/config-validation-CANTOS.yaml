@@ -1,0 +1,11 @@
+config:
+  study-name: CANTOS
+  ctrl-arm-name: CANTOS-placebo
+  trmt-arm-name: null
+  num-boot: 100
+  compare-outputs: TRUE
+  onearm-sample-size: 3344
+data:
+  input-ldc-data: confidential-data/CANTOS # confidential
+  vpop-desc: vpop-data/CANTOS/CANTOS-subsample-margins.csv
+  simulation-data: vpop-data/CANTOS/scalars-CANTOS-validation.csv

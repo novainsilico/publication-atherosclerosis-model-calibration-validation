@@ -1,0 +1,19 @@
+Measure,Variable,Unit
+valueTotalCholMass,Total cholesterol,mg/dL
+valueCRP,hs-CRP,mg/L
+valueHDLcMass,HDL-C,mg/L
+valueLpaSubstance,Lp(a),nmol/L
+valueLpaMass,Lp(a),mg/dL
+valueFreePCSK9,free PCSK9,μg/L
+valueTriglyceridesMass,Triglycerides,mg/dL
+valueVLDLcMass,VLDL-C,mg/dL
+valueLDLcUncorrectedMass,LDL-C,mg/dL
+valueNonHDLCholMass,non HDL-C,mg/dL
+valueApoB,apoB-100, mg/dL
+isMACE,MACE,%
+isMACEOLE,MACE,%
+isCvDeath,CV death,%
+isCvDeathOLE,CV death,%
+isMI,Myocardial infarction,%
+isIscStroke,Ischemic stroke,%
+isMajorAdverseLimbEvent,MALE,%

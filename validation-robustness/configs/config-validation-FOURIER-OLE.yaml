@@ -1,0 +1,11 @@
+config:
+  study-name: FOURIER-OLE
+  ctrl-arm-name: FOURIER-OLE-switch
+  trmt-arm-name: FOURIER-OLE-evolocumab
+  num-boot: 100
+  compare-outputs: TRUE
+  onearm-sample-size: 3317
+data:
+  input-ldc-data: literature-data/FOURIER-OLE/
+  vpop-desc: vpop-data/FOURIER-OLE/FOURIER-OLE-subsample-margins.csv
+  simulation-data: vpop-data/FOURIER-OLE/scalars-FOURIER-subsampled-for-OLE-merged.csv

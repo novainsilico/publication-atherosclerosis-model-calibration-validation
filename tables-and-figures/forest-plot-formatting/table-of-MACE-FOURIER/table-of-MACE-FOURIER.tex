@@ -1,0 +1,56 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+    \setmainfont{Inter}
+\usepackage[table]{xcolor}
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+\arrayrulecolor[HTML]{DB5800}
+\usepackage{tabularray}
+\usepackage{makecell}
+
+\definecolor{lightGray2}{HTML}{E7E6E6}
+
+\begin{document}
+
+\begin{tblr}{
+  colspec={|c|c|c|p{1cm}p{1cm}p{1cm}c|p{1cm}p{1cm}p{1cm}c|},
+  hline{1,4,5,9,11,13,16,20,22,24},
+  cell{4,6,8,10,12,14,16,18,20,22}{3,4,5,6,7,8,9,10,11}={bg=lightGray2},
+  cell{1}{1} = {r=3}{m},
+  cell{1}{2} = {c=2,r=3}{m},
+  cell{1}{4,8} = {c=4}{m,halign=m},
+  cell{2}{4,7,8,11} = {r=2}{m},
+  cell{2}{5,9} = {c=2}{m},
+  cell{4}{2} = {c=2}{m},
+  cell{5,16}{1,2} = {r=4}{m},
+  cell{9,11,20,22}{1,2} = {r=2}{m},
+  cell{13}{1,2} = {r=3}{m},
+}
+ \bf \makecell{Median\\FU\\\small(years)}  & \bf Subgroup &  & \bf \makecell{Observed data\\FOURIER RCT, N=27,564} & & & & \bf \makecell{Simulated data\\ASCVD VPop, N=442,615} & & & \\
+ & & & \bf N (\%) & \bf MACE rate (\%) & & \bf HR (95\% CI) & \bf N (\%) & \bf MACE rate (\%) & & \bf HR \\
+ & & &   & \bf EVO & \bf Pbo & & & \bf EVO & \bf Pbo & & \\
+2.2 &  \textbf{Overall}\textsuperscript{a} & & 100 & 5.9 & 7.4 & 0.80 (0.73-0.88) & 100 & 5.8 & 7.6 & 0.75 \\
+3 & \textbf{Age}\textsuperscript{b} & $<$ 56 y & 26 & 6.69 & 9.33 & 0.74 (0.61-0.89) & 23 & 5.99 & 8.09 & 0.73 \\
+ &   & 56-63 y & 26 & 7.71 & 8.84 & 0.83 (0.69-0.99) & 29 & 7.27 & 9.87 & 0.73 \\
+ &   & 63-69 y & 25 & 7.56 & 9.50 & 0.78 (0.65-0.94) & 24 & 8.23 & 11.09 & 0.73 \\
+ & & $\geq$ 69 y & 23 & 9.93 & 12.42 & 0.82 (0.69-0.98) & 24 & 9.80 & 12.78 & 0.76 \\
+3 & \textbf{Sex}\textsuperscript{b} & Male & 75 & 8.39 & 10.17 & 0.81 (0.73-0.90) & 76 & 8.06 & 10.73 & 0.74 \\
+  & & Female & 25 & 6.48 & 9.17  & 0.74 (0.61-0.90) & 24 & 7.00 & 9.52 & 0.73 \\
+3 & \textbf{Diabetes}\textsuperscript{c} & Yes & 40 & 10.2 & 12.2 & 0.82 (0.72-0.93) & 36 & 10.3 & 13.3 & 0.77 \\
+  & & No & 60 & 6.4 & 8.4 & 0.78 (0.69-0.89) & 64 & 6.4 & 8.8 & 0.71 \\
+2.5 &\textbf{eGFR}\textsuperscript{d} & $<$ 60 & 16 & 10.3 & 12.8 & 0.79 (0.65-0.95) & 21 & 7.7 & 10.0 & 0.76 \\
+ &   & 60-90 & 55 & 6.2 & 7.7 & 0.82 (0.72-0.93) & 55 & 6.6 & 8.5 & 0.74 \\
+ &   & $\geq$ 90 & 29 & 5.4 & 7.1 & 0.75 (0.62-0.90) & 24 & 5.6 & 7.5 & 0.74 \\
+2.2 & \makecell{\textbf{Type of}\\\textbf{ASCVD}\textsuperscript{a}} & MI alone & 69.3 & 5.2 & 6.4 & 0.80 (0.71-0.90) & 69.4 & 5.2 & 6.9 & 0.74 \\
+ &   & Stroke alone & 12.2 & 5.0 & 6.5 & 0.77 (0.58-1.02) & 11.4 & 5.0 & 6.3 & 0.78 \\
+ &   & PAD alone & 5.5 & 4.5 & 7.8 & 0.57 (0.38-0.88) & 5.4 & 6.5 & 8.6 & 0.75 \\
+ &   & PolyVD & 12.9 & 11.1 & 12.9 & 0.86 (0.71-1.04) & 13.9 & 8.9 & 11.4 & 0.77 \\
+2.2 &\makecell{\textbf{Baseline}\\\textbf{LDL-C}\textsuperscript{e}} & $<$ 70 mg/dL & 7 & 4.7 & 6.8 & 0.70 (0.48-1.01) & 13 & 5.2 & 6.5 & 0.79 \\
+ &   & $\geq$ 70 mg/dL & 93 & 6.0 & 7.4 & 0.81 (0.73-0.89) & 87 & 5.9 & 7.7 & 0.75 \\
+3 &\makecell{\textbf{Baseline}\\\textbf{Lp(a)}\textsuperscript{f}} & $\leq$ 37 nmol/L & 50 & 7.48 & 8.74 & 0.85 (0.73 -0.97) & 44.5 & 8.07 & 9.96 & 0.80 \\
+ &   & $>$ 37 nmol/L & 50 & 8.17 & 10.79 & 0.76 (0.66-0.86) & 55.5 & 7.59 & 10.82 & 0.69 \\
+\end{tblr}  
+
+\end{document} 

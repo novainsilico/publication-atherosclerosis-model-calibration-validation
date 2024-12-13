@@ -1,0 +1,51 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+    \setmainfont{Inter}
+\usepackage[table]{xcolor}
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\arrayrulecolor[HTML]{DB5800}
+\usepackage{tabularray}
+\usepackage{makecell}
+\usepackage{array}
+
+\definecolor{lightGray2}{HTML}{E7E6E6}
+
+\begin{document}
+
+\begin{tblr}{
+  colspec={|c|c|c|p{1cm}p{1.1cm}p{1.1cm}p{2.8cm}|p{1cm}p{1.1cm}p{1.1cm}c|},
+  hline{1,4,5,9,11,13,16,18},
+  column{7} = {halign=c},
+  cell{4,6,8,10,12,14,16}{3,4,5,6,7,8,9,10,11}={bg=lightGray2},
+  cell{1}{1} = {r=3}{m},
+  cell{1}{2} = {c=2,r=3}{m},
+  cell{1}{4,8} = {c=4}{m,halign=m},
+  cell{2}{4,7,8,11} = {r=2}{m},
+  cell{2}{5,9} = {c=2}{m},
+  cell{4}{2} = {c=2}{m},
+  cell{5}{1,2} = {r=4}{m},
+  cell{13}{1,2} = {r=3}{m},
+  cell{9,11,16}{1,2} = {r=2}{m},
+}
+ \bf \makecell{Median\\FU\\\small(years)}  & \bf Subgroup &  & \bf \makecell{Observed data\\FOURIER RCT, N=27,564} & & & & \bf \makecell{Simulated data\\ASCVD VPop, N=442,615} & & & \\
+ & & & \bf N (\%) & \bf CV death rate (\%) & & \bf HR (95\% CI) & \bf N (\%) & \bf CV death rate (\%) & & \bf HR \\
+ & & &   & \bf EVO & \bf Pbo & & & \bf EVO & \bf Pbo & & \\
+2.2 &  \textbf{Overall}\textsuperscript{a} & & 100 & 1.8 & 1.7 & 1.05 (0.88-1.25) & 100 & 1.7 & 1.8 & 0.92 \\
+3 & \textbf{Age}\textsuperscript{b} & $<$ 56 y & 26 & 1.57 & 1.42 & 1.32 (0.86-2.03) & 23 & 1.37 & 1.49 & 0.92 \\
+ &   & 56-63 y & 26 & 3.03 & 2.26 & 1.18 (0.83-1.68) & 29 & 1.91 & 2.07 & 0.92 \\
+ &   & 63-69 y & 25 & 2.19 & 2.83 & 0.83 (0.58-1.17) & 24 & 2.44 & 2.65 & 0.92 \\
+ & & $\geq$ 69 y & 23 & 3.30 & 3.20 & 1.01 (0.73-1.39) & 24 & 3.56 & 3.91 & 0.91 \\
+3 & \textbf{Sex}\textsuperscript{b} & Male & 75 & 2.77 & 2.69 & 1.05 (0.87-1.28) & 76 & 2.48 & 2.70 & 0.92 \\
+  & & Female & 25 & 1.66 & 1.49  & 1.01 (0.67-1.53) & 24 & 1.77 & 1.92 & 0.92 \\
+3 & \textbf{Diabetes}\textsuperscript{c} & Yes & 40 & 3.6 & 3.5 & 1.05 (0.83-1.34) & 36 & 3.2 & 3.5 & 0.91 \\
+  & & No & 60 & 1.8 & 1.7 & 1.04 (0.80-1.35) & 64 & 1.8 & 2.0 & 0.92 \\
+2.5 &\textbf{eGFR}\textsuperscript{d} & $<$ 60 & 16 & 4.0 & 4.7 & 0.88 (0.64-1.20) & 21 & 2.6 & 2.8 & 0.92 \\
+ &   & 60-90 & 55 & 1.8 & 1.6 & 1.16 (0.89-1.51) & 55 & 1.9 & 2.1 & 0.92 \\
+ &   & $\geq$ 90 & 29 & 1.6 & 1.3 & 1.03 (0.70-1.51) & 24 & 1.4 & 1.6 & 0.91 \\
+2.2 &\makecell{\textbf{Baseline}\\\textbf{LDL-C}\textsuperscript{e}} & $<$ 70 mg/dL & 7 & 1.4 & 1.4 & 0.97 (0.46-2.04) & 13 & 1.9 & 2.0 & 0.95 \\
+ &   & $\geq$ 70 mg/dL & 93 & 1.9 & 1.8 & 1.05 (0.87-1.26) & 87 & 1.7 & 1.8 & 0.92 \\
+\end{tblr}  
+
+\end{document} 

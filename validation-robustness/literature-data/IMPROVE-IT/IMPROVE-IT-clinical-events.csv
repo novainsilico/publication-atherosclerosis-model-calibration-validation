@@ -1,0 +1,43 @@
+Event,Arm,Time (years),Value,Condition,Ref
+isMACE,IMPROVE-IT-placebo,7,0.187,,https://jinko.ai/as-d14i-YhnM/
+isMACE,IMPROVE-IT-ezetimibe,7,0.17,,https://jinko.ai/as-d14i-YhnM/
+isMI,IMPROVE-IT-placebo,7,0.123,,https://jinko.ai/as-d14i-YhnM/
+isMI,IMPROVE-IT-ezetimibe,7,0.108,,https://jinko.ai/as-d14i-YhnM/
+isCvDeath,IMPROVE-IT-placebo,7,0.059,,https://jinko.ai/as-d14i-YhnM/
+isCvDeath,IMPROVE-IT-ezetimibe,7,0.059,,https://jinko.ai/as-d14i-YhnM/
+isFatalMI,IMPROVE-IT-placebo,7,0.0054,,https://jinko.ai/as-d14i-YhnM/
+isFatalMI,IMPROVE-IT-ezetimibe,7,0.0045,,https://jinko.ai/as-d14i-YhnM/
+isIscStroke,IMPROVE-IT-placebo,7,0.033,,https://jinko.ai/as-d14i-YhnM/
+isIscStroke,IMPROVE-IT-ezetimibe,7,0.026,,https://jinko.ai/as-d14i-YhnM/
+isCvDeath,IMPROVE-IT-placebo,7,0.046,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isCvDeath,IMPROVE-IT-ezetimibe,7,0.047,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isMI,IMPROVE-IT-placebo,7,0.107,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isMI,IMPROVE-IT-ezetimibe,7,0.1,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isIscStroke,IMPROVE-IT-placebo,7,0.033,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isIscStroke,IMPROVE-IT-ezetimibe,7,0.03,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isMACE,IMPROVE-IT-placebo,7,0.161,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isMACE,IMPROVE-IT-ezetimibe,7,0.154,isDiabetes == 0,https://jinko.ai/as-HR90-NYLA
+isCvDeath,IMPROVE-IT-placebo,7,0.095,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isCvDeath,IMPROVE-IT-ezetimibe,7,0.092,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isMI,IMPROVE-IT-placebo,7,0.167,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isMI,IMPROVE-IT-ezetimibe,7,0.129,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isIscStroke,IMPROVE-IT-placebo,7,0.052,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isIscStroke,IMPROVE-IT-ezetimibe,7,0.039,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isMACE,IMPROVE-IT-placebo,7,0.26,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isMACE,IMPROVE-IT-ezetimibe,7,0.214,isDiabetes == 1,https://jinko.ai/as-HR90-NYLA
+isIscStroke,IMPROVE-IT-placebo,7,0.163,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isIscStroke,IMPROVE-IT-ezetimibe,7,0.087,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isMI,IMPROVE-IT-placebo,7,0.22,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isMI,IMPROVE-IT-ezetimibe,7,0.191,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isCvDeath,IMPROVE-IT-placebo,7,0.111,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isCvDeath,IMPROVE-IT-ezetimibe,7,0.136,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isMACE,IMPROVE-IT-placebo,7,0.403,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isMACE,IMPROVE-IT-ezetimibe,7,0.332,isPriorCbvd == 1,https://jinko.ai/as-O0hf-Ls3S
+isIscStroke,IMPROVE-IT-placebo,7,0.037,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isIscStroke,IMPROVE-IT-ezetimibe,7,0.032,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isMI,IMPROVE-IT-placebo,7,0.146,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isMI,IMPROVE-IT-ezetimibe,7,0.129,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isCvDeath,IMPROVE-IT-placebo,7,0.067,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isCvDeath,IMPROVE-IT-ezetimibe,7,0.067,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isMACE,IMPROVE-IT-placebo,7,0.216,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S
+isMACE,IMPROVE-IT-ezetimibe,7,0.199,isPriorCbvd == 0,https://jinko.ai/as-O0hf-Ls3S

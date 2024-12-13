@@ -1,0 +1,40 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+    \setmainfont{Inter}
+\usepackage[table]{xcolor}
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+\arrayrulecolor[HTML]{DB5800}
+\usepackage{tabularray}
+\usepackage{makecell}
+
+\definecolor{lightGray2}{HTML}{E7E6E6}
+
+\begin{document}
+
+\begin{tblr}{
+  colspec={|c|p{1cm}p{1cm}p{2.8cm}|p{1cm}p{1cm}p{2.8cm}c|},
+  hline{1,4},
+  row{4,6,8,10,12,14,16,18,20,22,24}={bg=lightGray2},
+  cell{1}{1} = {r=3}{m},
+  cell{1}{2} = {c=3}{m,halign=m},
+  cell{1}{5} = {c=4}{m,halign=m},
+  cell{2}{2,5} = {c=2}{m,halign=m},
+  cell{2}{4,7,8} = {r=2}{m},
+}
+\bf \makecell{Risk factor}  & \bf \makecell{Observed data\\CANTOS RCT, N=3,344} & & & \bf \makecell{Simulated data\\ASCVD VPop, N=18,711} & & & & \\
+ & \bf 3P-MACE rate (\%) & & \bf HR (95\% CI) & \bf 3P-MACE rate (\%) & & \bf HR (95\% PPI) & \bf Precision (\%)\\
+ & \bf Yes & \bf No & &  \bf Yes & \bf No &  & \\
+\bf Age ≥ 65 y & 19.2 & 13.4 & 1.63 (1.32-1.96) & 19.0 & 14.2 & 1.39 (1.16-1.65) & 69.0\\
+\bf Male sex & 16.2 & 13.7 & 1.19 (0.95-1.46) & 16.3 & 14.2 & 1.18 (0.95-1.45) & 100 \\
+\bf Diabetes & 18.8 & 13.4 & 1.49 (1.24-1.80) & 18.5 & 13.9 & 1.38 (1.15-1.64) & 81.3\\
+\bf Current smoker & 19.5 & 14.4 & 1.38 (1.11-1.78) & 17.7 & 15.2 & 1.22 (1.00-1.49) & 77.8\\
+\bf Hypertension{\textsuperscript{*}} & 17.7 & 14.7 & 1.38 (1.13-1.71) & 17.9 & 14.8 & 1.23 (1.02-1.49) & 77.3\\
+\bf eGFR < 60 mL/min/1.73m\textsuperscript{2} & 22.7 & 13.9 & 1.87 (1.52-2.23) & 18.6 & 15.1 & 1.25 (1.01-1.55) & 5.8 \\
+\bf Prior CBVD & 21.0 & 15.3 & 1.58 (0.98-2.43) & 20.6 & 15.5 & 1.35 (0.93-1.96) & 95.3\\
+\bf Baseline LDL-C ≥ 80 mg/dL & 16.7 & 13.7 & 1.19 (1.00-1.56) & 17.3 & 14.0 & 1.27 (1.06-1.52) & 100
+\end{tblr}  
+
+\end{document} 

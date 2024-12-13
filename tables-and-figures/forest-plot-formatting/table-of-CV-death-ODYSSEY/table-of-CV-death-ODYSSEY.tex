@@ -1,0 +1,43 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+    \setmainfont{Inter}
+\usepackage[table]{xcolor}
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+\arrayrulecolor[HTML]{DB5800}
+\usepackage{tabularray}
+\usepackage{makecell}
+
+\definecolor{lightGray2}{HTML}{E7E6E6}
+
+\begin{document}
+
+\begin{tblr}{
+  colspec={|c|c|p{1cm}p{1cm}p{1cm}c|p{1cm}p{1cm}p{1cm}c|c|},
+  hline{1,4,5,9,12},
+  cell{4,6,8,10}{2,3,4,5,6,7,8,9,10}={bg=lightGray2},
+  cell{1}{1}= {c=2,r=3}{m},
+  cell{1}{11}= {r=3}{m},
+  cell{1}{3,7} = {c=4}{m,halign=m},
+  cell{2}{3,6,7,10} = {r=2}{m},
+  cell{2}{4,8} = {c=2}{m},
+  cell{4}{1} = {c=2}{m},
+  cell{5}{1} = {r=4}{m},
+  cell{9}{1} = {r=3}{m},
+}
+\bf Subgroup &  & \bf \makecell{Observed data\\ODYSSEY-OUTCOMES RCT, N=18,924} & & & & \bf \makecell{Simulated data\\ASCVD VPop, N=84,046} & & & & \bf Precision (\%)\\
+& & \bf N (\%) & \bf CV death rate (\%) & & \bf HR (95\% CI) & \bf N (\%) & \bf CV death rate (\%) & & \bf HR (95\% PPI)  & \\
+& &   & \bf ALI & \bf Pbo & & & \bf ALI & \bf Pbo & &  & \\
+\textbf{Overall}\textsuperscript{a} & & 100 & 2.5 & 2.9 & 0.88 (0.74-1.05) & 100 & 3.0 & 3.3 & 0.90 (0.77-1.06) & 97.5  \\
+\textbf{Age}\textsuperscript{b} & $<$ 65 y & 73	 & 2.0 & 2.0 & 0.93 (0.74-1.18) & 77 &	2.6 & 2.9 & 0.90 (0.73-1.11)  & 98.1 \\
+  & $\geq$ 65 y & 27 & 4.4 & 5.4 & 0.84 (0.65-1.09) & 23 & 5.0 & 5.6 & 0.91 (0.71-1.16) &  82.7 \\
+    & $<$ 75 y & 95 & 2.4 & 2.6 & 0.88 (0.73-1.06) & 96 & 3.0 & 3.4 & 0.90 (0.76-1.07) & 98.3 \\
+  & $\geq$ 75 y & 5 & 6.8 & 8.2 & 0.91 (0.58-1.43) & 4 & 6.8 & 7.6 & 0.93 (0.57-1.51) & 94.5 \\
+\makecell{\textbf{Baseline}\\\textbf{LDL-C}\textsuperscript{a}} & $<$ 80 mg/dL & 38 & 2.2 & 2.5 & 0.96 (0.71-1.29) & 50 & 2.8 & 3.1 & 0.92 (0.70-1.21) & 99.5 \\
+    & 80$-$100 mg/dL & 32 & 2.4 & 2.2 & 1.12 (0.80-1.56) & 24 & 3.1 & 3.4 & 0.92 (0.69-1.21) & 80.8 \\
+    & $\geq$ 100 mg/dL & 30 & 2.9 & 2.4 & 0.69 (0.52-0.92) & 26 & 3.1 & 3.6 & 0.87 (0.65-1.16) & 54.0 \\
+\end{tblr}  
+
+\end{document} 

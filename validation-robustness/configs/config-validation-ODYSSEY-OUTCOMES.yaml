@@ -1,0 +1,11 @@
+config:
+  study-name: ODYSSEY-OUTCOMES
+  ctrl-arm-name: ODYSSEY-OUTCOMES-placebo
+  trmt-arm-name: ODYSSEY-OUTCOMES-alirocumab
+  num-boot: 100
+  compare-outputs: True
+  onearm-sample-size: 9462
+data:
+  vpop-desc: vpop-data/ODYSSEY/ODYSSEY-OUTCOMES-subsample-margins.csv
+  input-ldc-data: literature-data/ODYSSEY/
+  simulation-data: vpop-data/ODYSSEY/scalars-ODYSSEY-OUTCOMES-valid-merged.csv

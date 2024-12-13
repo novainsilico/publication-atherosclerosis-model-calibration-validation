@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+    \setmainfont{Inter}
+\usepackage[table]{xcolor}
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+\arrayrulecolor[HTML]{DB5800}
+\usepackage{tabularray}
+\usepackage{makecell}
+
+\definecolor{lightGray2}{HTML}{E7E6E6}
+
+\begin{document}
+
+\begin{tblr}{
+  colspec={|c|ccc|ccc|c},
+  hline{1,4},
+  row{4,6,8,10,12,14,16,18,20,22,24}={bg=lightGray2},
+  cell{1}{1,8} = {r=3}{m},
+  cell{1}{2,5} = {c=3}{m,halign=m},
+  cell{2}{2,5} = {c=2}{m,halign=m},
+  cell{2}{4,7} = {r=2}{m},
+}
+\bf CV outcome &  \bf \makecell{Observed data\\IMPROVE-IT RCT, N=18,144} & & & \bf \makecell{Simulated data\\ASCVD VPop, N=25,577} & & & &\bf Precision (\%)\\
+ & \bf Incidence rate (\%) & & \bf HR (95\% CI) & \bf Incidence rate (\%) & & \bf HR (95\% PPI) & \\
+ & \bf EZE & \bf Pbo & &  \bf EZE & \bf Pbo &  & \\
+\textbf{3P-MACE} & 20.4 & 22.2 & 0.90 (0.84-0.96) & 19.8 & 22.3 & 0.87 (0.82-0.93) & 81.8 \\
+\textbf{CV death} & 5.7 & 5.8 & 1.00 (0.89-1.13) & 6.0 & 6.1 & 0.98 (0.87-1.10) & 90.4 \\
+\textbf{Fatal and nonfatal MI} & 13.1 & 14.8 & 0.87 (0.80-0.95) & 11.8 & 14.2 & 0.82 (0.76-0.89) & 68.5 \\
+\textbf{Fatal MI} & 0.5 & 0.7 & 0.84 (0.55-1.27) & 0.6 & 0.7 & 0.86 (0.60-1.23) & 100 \\
+\textbf{Fatal and nonfatal IS} & 3.4 & 4.1 & 0.79 (0.67-0.94) & 4.0 & 4.4 & 0.90 (0.78-1.04) & 60.3 \\
+\end{tblr}  
+
+\end{document} 

@@ -1,0 +1,669 @@
+---
+title: "Validation"
+output: html_document
+date: "`r Sys.Date()`"
+params:
+  config_file: NA
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F, warning = F)
+
+# install.packages("librarian") # you may need to install this package if it's not already installed
+librarian::shelf(ggplot2, gplots, JinkoStats, cmprsk, survival, survminer, knitr, yaml, boot, confintr, testthat, parallel,tidyr,dplyr) # this line will install and/or update all the packages that you list here (included those from github/lab)
+
+# choose one config file
+# config.file = "iconfig-validation-CANTOS.yaml"
+# config.file <- "iconfig-validation-ORION11.yaml"
+config.file = "iconfig-validation-ODYSSEY-OUTCOMES.yaml"
+# config.file = "iconfig-validation-FOURIER-OLE.yaml"
+# config.file = "iconfig-validation-IMPROVE-IT.yaml"
+
+source("validation-functions.R")
+
+variables.metadata.df = read.csv("VariablesMetaData.csv")
+
+# Read config file
+config.yaml <- read_yaml(paste0("config/", config.file))
+
+# Boot strap arguments
+nBoot <- config.yaml$config$`num-boot` # Careful, time consuming
+Study.name <- config.yaml$config$`study-name`
+Ctrl.Arm.name <- config.yaml$config$`ctrl-arm-name`
+Trmt.Arm.name <- config.yaml$config$`trmt-arm-name`
+onearm.sampleSize.int <- config.yaml$config$`onearm-sample-size`
+isCompareOutput <- config.yaml$config$`compare-outputs`
+input.ldc.folder <- config.yaml$data$`input-ldc-data`
+vpop.desc.path <- config.yaml$data$`vpop-desc`
+
+
+arms <- c(Ctrl.Arm.name, Trmt.Arm.name)
+
+inputFolder <- paste0(pathFromRmd, "literature-data/", Study.name, "/")
+pathToSimData <- config.yaml$data$`simulation-data`
+
+outputFolderPath <-  paste0(pathFromRmd, "vpop-data/", Study.name,"/")
+outputFolderName <- gsub(".csv","",tail(strsplit(pathToSimData,"/")[[1]], n = 1))
+outputFolder <-paste0(outputFolderPath,outputFolderName,"/")
+if(!file.exists(outputFolder)) dir.create(outputFolder, recursive = T)
+
+# Defining a seed for the bootstraps
+seed.int = 2023
+set.seed(seed.int)
+```
+# Validation : `r Study.name`
+
+Comparison of simulated data and reference data:
+
+- Primary assessment
+  * Treatment effect on LDL-C - relative change
+  * Treatment effect on CV death and 3P-MACE (HRC) - hazard ration comparison
+
+- Secondary assessment: For the entire Vpop and for available subgroups:
+  * Lipid/lipoprotein dynamic in both arms (C&P)
+  * CE LDC  in both arms (C&P or CLRT)
+  * Treatment effect on CE in available subgroups (HRC)
+
+```{r load-sim}
+# load simulated dataset generated with fastCsv function of crabbit
+scalars.df <- as.data.frame(fread(
+  paste0(pathFromRmd, pathToSimData),
+  check.names = F
+))
+
+scalars.df <- scalars.df[!is.na(scalars.df[,paste0(Ctrl.Arm.name,"_isMI")]),]
+
+# scalars.df <- scalars.df[sample(c(1:nrow(scalars.df)),size = 9465),]
+```
+
+```{r add-timeVar}
+if(Study.name == "CANTOS"){ #TODO
+  scalars.df[,"CANTOS-placebo_obsTimeOfFatalMI"] = 
+    sapply(c(1:nrow(scalars.df)),function(i){
+    ifelse(scalars.df[i,"CANTOS-placebo_isMI"] & scalars.df[i,"CANTOS-placebo_isFatalMI"] == 1,
+         scalars.df[i,"CANTOS-placebo_obsTimeOfMI"],
+         scalars.df[i,"CANTOS-placebo_timeOfCvDeath"])})
+  
+  
+  scalars.df[,"CANTOS-placebo_obsTimeOfFatalIscStroke"] =
+    sapply(c(1:nrow(scalars.df)),function(i){
+    ifelse(scalars.df[i,"CANTOS-placebo_isIscStroke"] & scalars.df[i,"CANTOS-placebo_isFatalIscStroke"] == 1,
+         scalars.df[i,"CANTOS-placebo_obsTimeOfIscStroke"],
+         scalars.df[i,"CANTOS-placebo_timeOfCvDeath"])})
+
+  # scalars.df[,"CANTOS-placebo_obsTimeOfNonFatalIscStroke"] = NA
+}
+
+if(Study.name == "ODYSSEY-OUTCOMES"){
+
+  scalars.df[,"ODYSSEY-OUTCOMES-placebo_isNonFatalMI"] =
+    ifelse(scalars.df[,"ODYSSEY-OUTCOMES-placebo_isMI"] & scalars.df[,"ODYSSEY-OUTCOMES-placebo_isFatalCHD"] == 0,1,0)
+
+  scalars.df[,"ODYSSEY-OUTCOMES-alirocumab_isNonFatalMI"] =
+    ifelse(scalars.df[,"ODYSSEY-OUTCOMES-alirocumab_isMI"] & scalars.df[,"ODYSSEY-OUTCOMES-alirocumab_isFatalCHD"] == 0,1,0)
+
+  scalars.df[,"ODYSSEY-OUTCOMES-placebo_obsTimeOfNonFatalMI"] =
+    sapply(c(1:nrow(scalars.df)),function(i){
+    ifelse(scalars.df[i,"ODYSSEY-OUTCOMES-placebo_isMI"] & scalars.df[i,"ODYSSEY-OUTCOMES-placebo_isFatalCHD"] == 0,
+         scalars.df[i,"ODYSSEY-OUTCOMES-placebo_obsTimeOfMI"],
+         scalars.df[i,"ODYSSEY-OUTCOMES-placebo_timeOfCvDeath"])})
+
+  scalars.df[,"ODYSSEY-OUTCOMES-alirocumab_obsTimeOfNonFatalMI"] =
+    sapply(c(1:nrow(scalars.df)),function(i){
+    ifelse(scalars.df[i,"ODYSSEY-OUTCOMES-alirocumab_isMI"] & scalars.df[i,"ODYSSEY-OUTCOMES-alirocumab_isFatalCHD"] == 0,
+         scalars.df[i,"ODYSSEY-OUTCOMES-alirocumab_obsTimeOfMI"],
+         scalars.df[i,"ODYSSEY-OUTCOMES-alirocumab_timeOfCvDeath"])})
+}
+
+
+if(Study.name == "IMPROVE-IT"){
+
+  scalars.df[,"IMPROVE-IT-placebo_timeOfFatalMI"] =
+    sapply(c(1:nrow(scalars.df)),function(i){
+    ifelse(scalars.df[i,"IMPROVE-IT-placebo_isMI"] & scalars.df[i,"IMPROVE-IT-placebo_isFatalMI"] == 1,
+         scalars.df[i,"IMPROVE-IT-placebo_obsTimeOfMI"],
+         scalars.df[i,"IMPROVE-IT-placebo_timeOfCvDeath"])})
+
+  scalars.df[,"IMPROVE-IT-ezetimibe_timeOfFatalMI"] =
+    sapply(c(1:nrow(scalars.df)),function(i){
+    ifelse(scalars.df[i,"IMPROVE-IT-ezetimibe_isMI"] & scalars.df[i,"IMPROVE-IT-ezetimibe_isFatalMI"] == 1,
+         scalars.df[i,"IMPROVE-IT-ezetimibe_obsTimeOfMI"],
+         scalars.df[i,"IMPROVE-IT-ezetimibe_timeOfCvDeath"])})
+}
+
+```
+
+```{r table-vpop}
+subsample.margins.df <- read.csv(paste0(pathFromRmd, vpop.desc.path), check.names = F)
+
+# TMP FOURIER-OLE
+if(Study.name == "FOURIER-OLE" & Ctrl.Arm.name == "FOURIER-placebo"){
+  subsample.margins.df$Variable  = gsub("FOURIER-OLE-switch_","FOURIER-placebo_",subsample.margins.df$Variable)
+  subsample.margins.df$Variable  = gsub("FOURIER-OLE-evolocumab_","FOURIER-evolocumab_",subsample.margins.df$Variable)
+}
+
+if(Study.name == "ORION11"){
+  scalars.df[, paste0(Ctrl.Arm.name, "_untreatedBaselineLDLcUncorrectedMass")] <- NA
+  scalars.df[, paste0(Ctrl.Arm.name, "_isRVALLT")] <- NA
+  scalars.df[, paste0(Ctrl.Arm.name, "_isAVALLT")] <- NA
+  scalars.df[, paste0(Ctrl.Arm.name, "_baselineApoBMass")] <- NA
+}
+
+if(Study.name == "CANTOS"){
+  scalars.df[, "isUncontrolledHighBloodPressure"] <- (scalars.df$systolicBloodPressure > 140 | scalars.df$diastolicBloodPressure > 90)
+}
+
+# Add descriptive variables
+scalars.df$isASCVD <- 1
+scalars.df$isPolyVD <- scalars.df$bedInvolvement > 1
+scalars.df$isPriorRevasc <- 0
+scalars.df$isBMIBetween25And30 <- scalars.df$BMI >= 25 & scalars.df$BMI < 30
+scalars.df$isBMIAbove30 <- scalars.df$BMI >= 30
+scalars.df$isHeFH <- scalars.df[, paste0(Ctrl.Arm.name, "_untreatedBaselineLDLcUncorrectedMass")] >= 200
+scalars.df[, paste0(Ctrl.Arm.name, "_isHighIntStatin")] <- scalars.df[, paste0(Ctrl.Arm.name, "_isModIntStatinMono")] == 0
+scalars.df$isEgfrBelow30 <- scalars.df$eGFR < 30
+scalars.df$isEgfrBetween30And59 <- scalars.df$eGFR >= 30 & scalars.df$eGFR < 60
+scalars.df$isEgfrBelow60 <- scalars.df$eGFR < 60
+
+
+vpopTable.df = getVpopTable(subsample.margins.df = subsample.margins.df, simData.df = scalars.df)
+
+
+write.csv(
+  x = vpopTable.df,
+  file = paste0(outputFolder,"valid-vpop-table.csv"),
+  row.names = F,
+  quote = F
+)
+
+kable(vpopTable.df)
+```
+
+
+```{r risk-factors-hr}
+
+conditions.vec = c(
+  "isMaleSex == 1",
+  "ageInit > 75",
+  "isDiabetes == 1",
+  "isSmoking == 1",
+  "isPriorCbvd == 1",
+  "isPriorPad == 1",
+  paste0(Ctrl.Arm.name,"_baselineLDLcUncorrectedMass"," > 80"),
+  "eGFR < 60"
+)
+
+
+# Condition.str = "isDiabetes == 1"
+# rf.hr(scalars.df,Condition.str, arm.name = Ctrl.Arm.name)
+
+
+rf.df = sapply(conditions.vec, FUN = function(c){rf.hr(simData.df=scalars.df, Condition.str=c, arm.name = Ctrl.Arm.name, study=Study.name)})
+
+
+write.csv(
+  x = t(rf.df),
+  file = paste0(outputFolder,"valid-riskfactor-hazard-ratio.csv"),
+  row.names = T,
+  quote = F
+)
+
+kable(t(rf.df), caption = "Risk factors hazard ratio")
+
+
+```
+## Lipoproteins dynamics
+
+
+```{r lipo-dyn-comp}
+if (isCompareOutput) {
+  
+  set.seed(seed.int)
+  # Reference data
+  allLipDyn.df <- read.csv(paste0(inputFolder, Study.name, "-entities-dynamics.csv"))
+  allLipDyn.df[allLipDyn.df$Time == max(allLipDyn.df$Time),"Time"] = max(scalars.df[,paste0(Ctrl.Arm.name,"_timeOfCvDeath")])
+  
+  # We define a new measure which is the mean between valueLDLcUncorrectedMassW12 and valueLDLcUncorrectedMassW24 in order to perform analyses from Gaba et al. (2023)
+  # Weeks 12 and 24 in FOURIER-OLE correspond to W168 and W180 of FOURIER + FOURIER-OLE
+  if (Study.name == "FOURIER-OLE") {
+    scalars.df$`FOURIER-OLE-evolocumab_meanLDLcUncorrectedMassW12W24` <- (scalars.df$`FOURIER-OLE-evolocumab_valueLDLcUncorrectedMassW127` + scalars.df$`FOURIER-OLE-evolocumab_valueLDLcUncorrectedMassW139`) / 2
+    scalars.df$`FOURIER-OLE-switch_meanLDLcUncorrectedMassW12W24` <- (scalars.df$`FOURIER-OLE-switch_valueLDLcUncorrectedMassW127` + scalars.df$`FOURIER-OLE-switch_valueLDLcUncorrectedMassW139`) / 2
+  }
+
+  # FIX: last time point is slightly above Tmax (default time to cv death if the patient doesn't die)
+  if(Study.name == "ODYSSEY-OUTCOMES"){
+    allLipDyn.df$Time[allLipDyn.df$Time==4] = max(scalars.df$`ODYSSEY-OUTCOMES-placebo_timeOfCvDeath`) - 0.01
+  }
+
+  # Compute predicted interval for each lipoprotein measure
+  allLipDyn.df <- addPredictedLipValue(refData.df = allLipDyn.df, simData.df = scalars.df)
+
+  write.csv(
+    x = allLipDyn.df,
+    file = paste0(outputFolder,"valid-entities-all-values.csv"),
+    row.names = F,
+    quote = F
+  )
+  
+  if(Study.name == "ORION11"){
+  # Removing lpa data point with not enough patients
+  o11.toRemove = allLipDyn.df$Measure == "valueLpaSubstance" & round(allLipDyn.df$Time,2) %in% c(0.74,1.23,1.40) 
+  allLipDyn.df = allLipDyn.df[!o11.toRemove,]
+  }
+
+  # plot observation vs prediction
+  MeasureCondition.tuple <- unique(allLipDyn.df[, c("Measure", "Condition", "ValueType")])
+  Lip.CoveragePrecision.list <- lapply(c(1:nrow(MeasureCondition.tuple)),
+    FUN = function(l) {
+      print(paste(l,"/",nrow(MeasureCondition.tuple)))
+      line <- MeasureCondition.tuple[l, ]
+      Measure.name <- line$Measure
+      Condition.str <- line$Condition
+
+      ValueType.str <- line$ValueType
+      compareLipDyn(allLipDyn.df = allLipDyn.df,
+                    Measure.name = Measure.name,
+                    Condition.str = Condition.str,
+                    ValueType.str = ValueType.str)
+      }
+  )
+  save(Lip.CoveragePrecision.list,file =  paste0(outputFolder,"Lip.CoveragePrecision.list.RData"))
+  
+  
+  Data.LipChange.list = lapply(Lip.CoveragePrecision.list, FUN=function(li){li$data})
+  
+  Lip.CoveragePrecision.df <- cbind(MeasureCondition.tuple, do.call("rbind", Data.LipChange.list))
+
+  write.csv(
+    x = Lip.CoveragePrecision.df,
+    file = paste0(outputFolder,"valid-entities-dynamics.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(Lip.CoveragePrecision.df, "simple", caption = "Lipoproteins dynamics coverage and precision")
+}
+```
+
+```{r lipo-dyn-both-arms-comp}
+if (paste0(Study.name, "-entities-dynamics-cross-arm.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  
+  set.seed(seed.int)
+  # Reference data
+  allLipDynCrossArm.df <- read.csv(paste0(inputFolder, Study.name, "-entities-dynamics-cross-arm.csv"))
+
+  # For the values of interest, the simulated dataset is duplicated so that each patient/arm tuple is a unique line
+  sub.scalars.df <- scalars.df[, grep(
+    paste(c(gsub("CrossArms_", "", unique(allLipDynCrossArm.df$Variable)), "timeOfCvDeath"), collapse = "|"),
+    names(scalars.df)
+  )]
+  ctrl.sub.scalars.df <- sub.scalars.df[, grep(Ctrl.Arm.name, names(sub.scalars.df))]
+  names(ctrl.sub.scalars.df) <- gsub(paste0(Ctrl.Arm.name, "_"), "CrossArms_", names(ctrl.sub.scalars.df))
+  trmt.sub.scalars.df <- sub.scalars.df[, grep(Trmt.Arm.name, names(sub.scalars.df))]
+  names(trmt.sub.scalars.df) <- gsub(paste0(Trmt.Arm.name, "_"), "CrossArms_", names(trmt.sub.scalars.df))
+  sub.scalars.df <- rbind(ctrl.sub.scalars.df, trmt.sub.scalars.df)
+
+  # # test
+  # refData.df = allLipDyn.df
+  # simData.df =scalars.df
+
+  # Compute predicted interval for each lipoprotein measure
+  allLipDynCrossArm.df <- addPredictedLipValue(refData.df = allLipDynCrossArm.df, simData.df = sub.scalars.df)
+
+  # plot observation vs prediction
+  MeasureCondition.tuple <- unique(allLipDynCrossArm.df[, c("Measure", "Condition")])
+  LipCrossArm.CoveragePrecision.list <- lapply(c(1:nrow(MeasureCondition.tuple)),
+    FUN = function(l) {
+      line <- MeasureCondition.tuple[l, ]
+      compareLipDyn(allLipDyn.df = allLipDynCrossArm.df, Measure.name = line$Measure, Condition.str = line$Condition)
+    }
+  )
+  LipCrossArm.CoveragePrecision.df <- cbind(MeasureCondition.tuple, do.call("rbind", LipCrossArm.CoveragePrecision.list))
+
+  write.csv(
+    x = t(LipCrossArm.CoveragePrecision.df),
+    file = paste0(outputFolder,"valid-entities-dynamics-cross-arm.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(LipCrossArm.CoveragePrecision.df, "simple", caption = "Lipoproteins dynamics coverage and precision")
+}
+```
+
+```{r LDL-C relative change}
+if (paste0(Study.name, "-lipoproteins-change.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  
+  set.seed(seed.int)
+  # Reference data
+  allLipDiff.df <- read.csv(paste0(inputFolder, Study.name, "-lipoproteins-change.csv"))
+  allLipDiff.df <- allLipDiff.df[order(allLipDiff.df$Condition), ]
+
+  # By default if the change type is not defines, it is a relative change (legacy)
+  if(!"ChangeType" %in% names(allLipDiff.df)) allLipDiff.df$ChangeType = "Relative"
+
+  # test <- compareOneLipChangeLine(lc.line = allLipDiff.df[3, ], simData.df = scalars.df)
+
+  lcComparison.df <-
+    sapply(c(1:nrow(allLipDiff.df)), FUN = function(l) {
+      print(paste(l,"/",nrow(allLipDiff.df)))
+      compareOneLipChangeLine(lc.line = allLipDiff.df[l, ], simData.df = scalars.df)
+    })
+
+  write.csv(
+    x = t(lcComparison.df),
+    file = paste0(outputFolder,"valid-lipoproteins-change.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(lcComparison.df, "simple", caption = "Lipoprotein change coverage and precision")
+}
+```
+
+```{r LDL-C relative difference between subgroups}
+if (paste0(Study.name, "-entities-difference.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  
+  set.seed(seed.int)
+  # Reference data
+  allLipDiff.df <- read.csv(paste0(inputFolder, Study.name, "-entities-difference.csv"))
+  allLipDiff.df <- allLipDiff.df[order(allLipDiff.df$SubGroupCondition), ]
+  allLipDiff.df <- allLipDiff.df[grep("D1098", allLipDiff.df$Variable), ]
+
+
+  # test <- compareOneLipDiffLine(ld.line = allLipDiff.df[1, ], simData.df = scalars.df)
+
+  ldComparison.df <-
+    sapply(c(1:nrow(allLipDiff.df)), FUN = function(l) {
+      print(paste(l,"/",nrow(allLipDiff.df)))
+      compareOneLipDiffLine(ld.line = allLipDiff.df[l, ], simData.df = scalars.df)
+    })
+
+  write.csv(
+    x = t(ldComparison.df),
+    file = paste0(outputFolder,"valid-entities-difference.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(ldComparison.df, "simple", caption = "Lipoprotein difference between subgroups coverage and precision")
+}
+```
+
+## Clinical events
+
+```{r compare-occurrence}
+if (paste0(Study.name, "-clinical-events.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  set.seed(seed.int)
+  occ.df <- read.csv(paste0(inputFolder, Study.name, "-clinical-events.csv"),check.names = F)
+  occ.df <- occ.df[order(occ.df$Condition),]
+
+  # if(Study.name == ?)  occ.df$Event <- gsub("FatalMI","FatalMI",occ.df$Event)
+  
+  occComparison.df <- sapply(c(1:nrow(occ.df)), FUN = function(l) {
+      print(paste0(l,"/",nrow(occ.df)))
+      compareOneOccurenceLine(occ.line = occ.df[l, ], simData.df = scalars.df)
+  })
+
+  write.csv(
+    x = t(occComparison.df),
+    file = paste0(outputFolder,"valid-event-occurence.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(occComparison.df, "simple", caption = "Event occurence comparison")
+
+  twoArmsOcc.df = twoArmsOccurenceTable(oneArm.df = occComparison.df, simData.df = scalars.df)
+  write.csv(
+    x = apply(twoArmsOcc.df,2,unlist),
+    file = paste0(outputFolder,"valid-event-occurence-2arms.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(occComparison.df, "simple", caption = "Event occurence comparison - 2 arms")
+}
+```
+
+```{r compare hazard ratio}
+if (paste0(Study.name, "-hazard-ratios.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  set.seed(seed.int)
+  
+  hr.df <- read.csv(paste0(inputFolder, Study.name, "-hazard-ratios.csv"))
+  hr.df <- hr.df[order(hr.df$Condition), ]
+
+  # TMP fix for FOURIER-OLE - it reads the Condition column as NAs because there is no condition in any of the rows
+  if (Study.name == "FOURIER-OLE") {
+    hr.df$Condition <- ""
+  }
+
+  # Remove outcomes not modeled
+  hr.df <- subset(hr.df, Event != "AnyStroke")
+
+  # test <- compareOneHrLine(hr.df[4,], scalars.df, Ctrl.Arm.name, Trmt.Arm.name)
+  if (Study.name == "ODYSSEY-OUTCOMES") {
+    scalars.df$`ODYSSEY-OUTCOMES-placebo_isNonFatalMI` <- scalars.df$`ODYSSEY-OUTCOMES-placebo_isNonFatalMI2_8Y`
+    scalars.df$`ODYSSEY-OUTCOMES-alirocumab_isNonFatalMI` <- scalars.df$`ODYSSEY-OUTCOMES-alirocumab_isNonFatalMI2_8Y`
+    scalars.df$`ODYSSEY-OUTCOMES-placebo_timeOfNonFatalMI` <- scalars.df$`ODYSSEY-OUTCOMES-placebo_obsTimeOfMI`
+    scalars.df$`ODYSSEY-OUTCOMES-alirocumab_timeOfNonFatalMI` <- scalars.df$`ODYSSEY-OUTCOMES-alirocumab_obsTimeOfMI`
+  }
+
+  if (Study.name == "IMPROVE-IT"){
+    scalars.df$`IMPROVE-IT-placebo_timeOfFatalMI` <- scalars.df$`IMPROVE-IT-placebo_obsTimeOfMI`
+    scalars.df$`IMPROVE-IT-ezetimibe_timeOfFatalMI` <- scalars.df$`IMPROVE-IT-ezetimibe_obsTimeOfMI`
+  }
+
+  # # # parallel execution
+  # cl <- makeCluster(6)
+  # clusterExport(cl, varlist = c("hr.df", "scalars.df", "Ctrl.Arm.name", "Trmt.Arm.name", "compareOneHrLine",
+  #                               "addVarOutcomeBefore", "getSimHR", "getSimHrateBootDistrib", "getBootHR",
+  #                               "Survival.Bootstrap","nBoot", "%>%", "Coverage.Precision.Validation", "between",
+  #                               "parseCondition", "parseOneCondition", "parseOneConditionSide", "BootstrapCox.fun",
+  #                               "coxph", "Surv","mutate_at"), )
+  # 
+  # hrComparison.df <- parSapply(cl,
+  #   c(1:nrow(hr.df)),
+  #   FUN = function(l) {
+  #     # print(paste0(l,"/",nrow(hr.df)))
+  #     compareOneHrLine(hr.line = hr.df[l, ], simData.df = scalars.df, Ctrl.Arm.name, Trmt.Arm.name)
+  #   }
+  # )
+  # stopCluster(cl)
+
+  # not parallel execution
+  
+  # BUG reproducibility
+  # hr.df <- hr.df[hr.df$Condition == "",]
+  # nBoot = 10
+  # # for(nBoot in c(3,10,50,100,200)){
+  # print(paste("nBoot:",nBoot))
+  # for(i in c(1:5)){
+  hrComparison.df <- sapply(c(1:nrow(hr.df)), FUN = function(l) {
+      print(paste0(l,"/",nrow(hr.df)))
+    compareOneHrLine(hr.line = hr.df[l, ], simData.df = scalars.df, Ctrl.Arm.name, Trmt.Arm.name)
+  })
+  
+  # print(hrComparison.df[1,]$sim)
+  # print(unlist(as.data.frame(t(hrComparison.df))$sim))
+  # }
+  # }
+  save(hrComparison.df,file =  paste0(outputFolder,"hrComparison.df.RData"))
+  
+  write.csv(
+    x = t(hrComparison.df),
+    file = paste0(outputFolder,"valid-hazard-ratios.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(hrComparison.df, "simple", caption = "Hazard ratio comparison")
+}
+```
+
+```{r subgroup hazard ratio (cantos)}
+if (paste0(Study.name, "-subgroup-hazard-ratios.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  set.seed(seed.int)
+
+  sghr.df <- read.csv(paste0(inputFolder, Study.name, "-subgroup-hazard-ratios.csv"))
+  sghr.df$Event <- gsub("FatalMI","FatalMI",sghr.df$Event)
+  sghr.df <- sghr.df[sapply(sghr.df$Event, FUN = function(e) {
+    isOutputInSimData(arms[1], e, names(scalars.df))
+  }), ]
+
+    
+  # test
+  # compareOneSubgroupHrLine(sghr.line = sghr.df[2,], simData.df= scalars.df, Arm.name = Ctrl.Arm.name)
+
+  # parallel execution
+  # cl <- makeCluster(4)
+  # clusterExport(cl, varlist = c("sghr.df", "scalars.df", "Ctrl.Arm.name", "Trmt.Arm.name", "compareOneHrLine", "addVarOutcomeBefore", "getSimHR", "getSimHrateBootDistrib", "getBootHR", "Survival.Bootstrap", "nBoot", "%>%", "Coverage.Precision.Validation", "between", "parseCondition", "parseOneCondition", "parseOneConditionSide"))
+
+  sghrComparison.df <- sapply(c(1:nrow(sghr.df)),
+    FUN = function(l) {
+      print(paste(l, "/", nrow(sghr.df)))
+      compareOneSubgroupHrLine(
+        sghr.line = sghr.df[l, ],
+        simData.df = scalars.df,
+        Arm.name = Ctrl.Arm.name
+      )
+    }
+  )
+  # stopCluster(cl)
+  
+  
+
+  write.csv(
+    x = t(sghrComparison.df),
+    file = paste0(outputFolder,"valid-subgroup-hazard-ratios.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(sghrComparison.df, "simple", caption = "Hazard ratio coverage and precision")
+}
+```
+
+```{r life-time-distribution-curve-comparison}
+if (paste0(Study.name, "-km-data.csv") %in% list.files(inputFolder) & isCompareOutput) {
+  set.seed(seed.int)
+  
+  # Reference data
+  allLDC.df <- read.csv(paste0(inputFolder, Study.name, "-km-data.csv"))
+  allLDC.df <- allLDC.df[order(allLDC.df$Condition), ]
+  allLDC.df <- allLDC.df[sapply(allLDC.df$Event.name, FUN = function(e) {
+    isOutputInSimData(arms[1], e, names(scalars.df))
+  }), ]
+
+  # test
+  # l = compareOneLdcLine(allLDC.df[1,],scalars.df,Study.name = Study.name,ldc.inputFolder.str = input.ldc.folder)
+  # ldcComparison.df <- sapply(c(1:2), FUN = function(l){compareOneLdcLine(allLDC.df[l,], scalars.df, Study.name=Study.name, ldc.inputFolder.str = input.ldc.folder)})
+
+  if (Study.name == "ORION11") {
+    # Remove SMURFless categories for now and with isPriorPad == 0 because I took a FOURIER-PAD vpop to run the pipeline
+    allLDC.df <- allLDC.df[allLDC.df$Condition != "(isDiabetes == 1) Or (isSmoking == 1) Or (baselineLDLcUncorrectedMass >= 116) Or (hypertension)" & allLDC.df$Condition != "(isDiabetes == 0) And (isSmoking == 0) And (baselineLDLcUncorrectedMass < 116) And (isUncontrolledHighBloodPressure == 0)" & allLDC.df$Condition != "isPriorPad == 0", ]
+    # Modify time corresponding to fatal MI
+    allLDC.df[allLDC.df$Event.time == "timeOfFatalMI", ]$Event.time <- "obsTimeOfMI"
+  }
+
+  # TMP fix for FOURIER-OLE - it reads the Condition column as NAs because there is no condition in any of the rows
+  if (Study.name == "FOURIER-OLE") {
+    allLDC.df$Condition <- ""
+  }
+
+
+  # not parallel execution (parallel execution doesn't output plots)
+  ldcComparison.list <- lapply(c(1:nrow(allLDC.df)),
+    # ldcComparison.df <- sapply(c(41:51),
+    FUN = function(l) {
+      print(paste(l,"/",nrow(allLDC.df)))
+      compareOneLdcLine(
+        ldc.line = allLDC.df[l, ],
+        simData.df = scalars.df,
+        Study.name = Study.name,
+        ldc.inputFolder.str = input.ldc.folder
+      )
+    }
+  )
+  
+  save(ldcComparison.list,file =  paste0(outputFolder,"ldcComparison.list.RData"))
+
+  Data.LdcComparison.list = lapply(ldcComparison.list, FUN=function(li){li$data})
+  Data.LdcComparison.df = do.call("rbind",Data.LdcComparison.list)
+  
+  # Cut the beginning of KM curve in improve-it study (because of recent ACS)
+  if(Study.name == "IMPROVE-IT"){
+
+      ldcComparison.df <- sapply(c(1:nrow(allLDC.df)),
+    # ldcComparison.df <- sapply(c(41:51),
+    FUN = function(l) {
+      print(paste(l,"/",nrow(allLDC.df)))
+      compareOneLdcLine(
+        ldc.line = allLDC.df[l, ],
+        simData.df = scalars.df,
+        Study.name = Study.name,
+        ldc.inputFolder.str = input.ldc.folder,
+        startTime = 1
+      )
+    }
+  )
+  }
+
+  
+ 
+
+  write.csv(
+    x = Data.LdcComparison.df,
+    file = paste0(outputFolder,"valid-km-data.csv"),
+    row.names = F,
+    quote = F
+  )
+
+  kable(Data.LdcComparison.df, "simple", caption = "Lifetime distribution curve assessment")
+}
+```
+
+# Baseline per subgroup
+
+```{r table-vpop-sg, results = 'asis'}
+subgroups.conditions.df <- read.csv(paste0(inputFolder, Study.name, "-subgroups.csv"))
+
+subgroups.conditions.df$Condition <- gsub("StudyName", Study.name, subgroups.conditions.df$Condition)
+
+sg.outputFolder <- paste0(outputFolder,"vpop-table-subgroup/")
+if(!file.exists(sg.outputFolder)) dir.create(sg.outputFolder)
+
+for(sg in unique(subgroups.conditions.df$Subgroup)){
+  categories = subgroups.conditions.df[subgroups.conditions.df$Subgroup == sg,"Category"]
+  vpopTable.list = list()
+  for (cat in c(categories)) {
+    vpop.df <- getVpopTable(
+    subsample.margins.df = subsample.margins.df,
+    simData.df = scalars.df,
+    condition.line = subgroups.conditions.df[
+      subgroups.conditions.df$Category == cat,]
+    )
+    names(vpop.df) = paste(names(vpop.df),cat)
+    vpopTable.list <- append(vpopTable.list,vpop.df)
+    write.csv(
+      x = vpop.df,
+      file = paste0(sg.outputFolder,"valid-vpop-subgroup-table-",gsub(" ","",paste0(sg,"-",cat)),".csv"),
+      row.names = F,
+      quote = F
+    )
+    # print(kable(vpop.df, caption = paste("Subgroup:", sg, "Category:", cat)))
+
+    vpopTableSg.df = as.data.frame(vpopTable.list, check.names = F)
+    vpopTableSg.df = vpopTableSg.df[-grep("Description",names(vpopTableSg.df))[-1]]
+    if (ncol(vpopTableSg.df ) < 1) {next}
+    names(vpopTableSg.df) = gsub(grep("Description",names(vpopTableSg.df),value = T),"Description",names(vpopTableSg.df))
+    write.csv(
+        x = vpopTableSg.df,
+        file = paste0(sg.outputFolder,"valid-vpop-subgroup-table-",gsub(" ","",paste0(sg,"-all")),".csv"),
+        row.names = F,
+        quote = F
+      )
+    print(kable(vpopTableSg.df, caption = paste("Subgroup:", sg)))
+  }
+}
+```

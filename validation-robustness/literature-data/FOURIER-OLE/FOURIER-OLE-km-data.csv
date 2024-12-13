@@ -1,0 +1,4 @@
+"File name","Event name","Event time","Condition","Ref"
+"kmScaledData-FOURIER-OLE-ODonoghue-2022-MACE-IndividualPatientData","isMACE","timeOfMACE",,"https://jinko.ai/as-kRfz-jaE3"
+"kmScaledData-FOURIER-OLE-ODonoghue-2022-MACE_5yOnly-IndividualPatientData","isMACEOLE","timeOfMACEOLE",,"https://jinko.ai/as-lL0K-GBA8/"
+"kmScaledData-FOURIER-OLE-ODonoghue-2022-CvDeath_5yOnly-IndividualPatientData","isCvDeathOLE","timeOfCvDeathOLE",,"https://jinko.ai/as-lL0K-GBA8/"

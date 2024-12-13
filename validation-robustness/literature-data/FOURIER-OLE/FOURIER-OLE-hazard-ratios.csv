@@ -1,0 +1,11 @@
+Id,Event,Time Min Bound,Time Max Bound,SampleSizeControl,SampleSizeTreatment,Value,Low95CI,High95CI,Condition,Ref
+MACE-min2.2-max7.2,MACE,2.2,7.2,3355,3280,0.8,0.68,0.93,,https://jinko.ai/as-vJt4-u0OV/
+CvDeath-min2.2-max7.2,CvDeath,2.2,7.2,3355,3280,0.77,0.6,0.99,,https://jinko.ai/as-vJt4-u0OV/
+MACE-min2.3-max5.3,MACE,2.3,5.3,3355,3280,0.69,0.57,0.83,,https://jinko.ai/as-LYmS-Ppzw/
+MACE-min5.3-max7.2,MACE,5.3,7.2,3355,3280,1.06,0.81,1.37,,https://jinko.ai/as-LYmS-Ppzw/
+MI-min2.2-max7.2,MI,2.2,7.2,3355,3280,0.75,0.6,0.93,,https://jinko.ai/as-KHfE-EQjz/
+MACE-min2.2-max3.2,MACE,2.2,3.2,3355,3280,0.63,0.47,0.86,,https://jinko.ai/as-KAJG-6dzJ/
+MACE-min3.2-max4.2,MACE,3.2,4.2,3355,3280,0.85,0.62,1.15,,https://jinko.ai/as-KAJG-6dzJ/
+MACE-min4.2-max5.2,MACE,4.2,5.2,3355,3280,0.73,0.52,1.01,,https://jinko.ai/as-KAJG-6dzJ/
+MACE-min5.2-max6.2,MACE,5.2,6.2,3355,3280,1.11,0.81,1.52,,https://jinko.ai/as-KAJG-6dzJ/
+MACE-min6.2-max7.2,MACE,6.2,7.2,3355,3280,0.9,0.64,1.28,,https://jinko.ai/as-KAJG-6dzJ/

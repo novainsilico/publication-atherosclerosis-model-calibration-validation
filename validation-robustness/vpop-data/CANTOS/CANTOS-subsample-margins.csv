@@ -1,0 +1,54 @@
+Description,Variable,SummaryType,Target,Ref,TargetValue,AbsoluteTol,CrabbitTarget
+,,,,,,,
+Medical history,,,,,,,
+ASCVD(%),isASCVD,Proportion,100,,100,0,
+Polyvascular ASCVD(%),isPolyVD,Proportion,,,,,
+Coronary revasc(%),isPriorRevasc,Proportion,0,,0,0,
+Myocardial infarction(%),isPriorChd,Proportion,100,Novartis data,100,5,
+Ischemic stroke(%),isPriorCbvd,Proportion,4.52,Novartis data,4.52,1.5,OK
+Symptomatic PAD(%),isPriorPad,Proportion,,,,1.5,
+Patient characteristics,,,,,,,
+Age - yr (mean (SD)),ageInit,MeanSD,60.41 (10.58),Novartis data,60.41,3,OK
+Male sex(%),isMaleSex,Proportion,74.41,Novartis data,74.41,5,OK
+"Body mass index - kg/m2
+mean (SD) or median (Q1-Q3)",BMI,MeanSD,30.66 (6.03),Novartis data,30.66,1,OK
+BMI 25-30 - %,isBMIBetween25And30,Proportion,,,,,
+BMI > 30 kg/m2 - %,isBMIAbove30,Proportion,,,,,
+Mean sitting SBP,systolicBloodPressure,MeanSD,131 (16.31),Novartis data,131,2,OK
+Mean sitting DBP,diastolicBloodPressure,MeanSD,78 (9.66),Novartis data,78,2,OK
+Atrial fibrillation,isAtrialFibrillation,Proportion,,Novartis data,,1,
+Heart failure,isHeartFailure,Proportion,21.23,Novartis data,21.23,1,OK
+CV risk factors(%),,,,,,,
+Current smoker,isSmoking,Proportion,23,Novartis data,23,2,OK
+Diabetes,isDiabetes,Proportion,40.03,Novartis data,40.03,2,OK
+Estimated HeFH,isHeFH,Proportion,6,SANTORINI,,2,
+Concomitant therapy(%),,,,,,,
+Aspirin/Antiplaquettaire,isAspirin,Proportion,85.69,Novartis data,85.69,5,OK
+Rosuvastatin,CANTOS-placebo_isRVALLT,Proportion,,,,,
+Atorvastatin,CANTOS-placebo_isAVALLT,Proportion,,,,,
+Moderate-intensity statin,CANTOS-placebo_isModIntStatinMono,Proportion,56.4,Novartis data,56.4,5,OK
+High-intensity statin,CANTOS-placebo_isHighIntStatin,Proportion,43.3,Novartis data,43.3,5,OK
+Ezetimibe combination,CANTOS-placebo_isHighIntStatinEze,Proportion,5.2,Novartis data,5.2,2.5,OK
+Biological measures - mg/dL,,,,,,,
+LDL-C,CANTOS-placebo_baselineLDLcUncorrectedMass,MeanSD,87.47 (35.66),Novartis data,87.47,8,OK
+TC,CANTOS-placebo_baselineTotalCholMass,MeanSD,165.8 (43.8),Novartis data,165.8,8,OK
+Non-HDL-C,CANTOS-placebo_baselineNonHDLCholMass,MeanSD,119.6 (42.75),Novartis data,,8,
+HDL-C,CANTOS-placebo_baselineHDLcMass,MeanSD,45.94 (12.41),Novartis data,,4,
+Apo-B,CANTOS-placebo_baselineApoBMass,MeanSD,,,,8,
+Triglycerides,CANTOS-placebo_baselineTriglyceridesMass,MeanSD,166.2 (122.7),Novartis data,166.2,10,OK
+Lipoprotein(a) - mmol/L,CANTOS-placebo_baselineLpaSubstance,MedianIQR,,,,10,
+VLDL,CANTOS-placebo_baselineVLDLcMass,MeanSD,30.99 (19.02),Novartis data,,4,
+PCSK9 - μg/L,CANTOS-placebo_baselineFreePCSK9,MeanSD,,,,20,
+Biological measures - mg/dL,,,,,,,
+hsCRP - mg/dL med. (range),CANTOS-placebo_baselineCRP,MedianIQR, 3.5 (2.2-6.2),Novartis data, 3.5,0.5,OK
+eGFR - mL/min/1.73 m2,eGFR,MeanSD,80 (22.16),Novartis data,80,5,OK
+Severe (eGFR < 30),isEgfrBelow30,Proportion,,,,,
+Moderate (eGFR 30-59),isEgfrBetween30And59,Proportion,,,,,
+CKD > G2 (eGFR<60),isEgfrBelow60,Proportion,,,,,
+Control arm outcomes (%),,,,,,,
+MACE (%),CANTOS-placebo_isMACE,Proportion,15.55,Novartis data,15.55,1,OK
+CV death (%),CANTOS-placebo_isCvDeath,Proportion,5.78,Novartis data,5.78,1,OK
+Myocardial infarction(%),CANTOS-placebo_isMI,Proportion,9.57,Novartis data,9.57,1,OK
+Fatal MI(%),CANTOS-placebo_isFatalMI,Proportion,1.17,Novartis data,1.17,1,OK
+Fatal ischemic stroke(%),CANTOS-placebo_isFatalIscStroke,Proportion,0.35,Novartis data,0.35,1,OK
+Symptomatic PAD(%),CANTOS-placebo_isMajorAdverseLimbEvent,Proportion,0.7,Novartis data,0.7,1,OK

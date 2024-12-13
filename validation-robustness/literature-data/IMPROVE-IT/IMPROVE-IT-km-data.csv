@@ -1,0 +1,8 @@
+File name,Event name,Event time,Condition,Ref
+kmScaledData-IMPROVE-IT-Cannon-2015-MaceCHD-IndividualPatientData,isMACE,timeOfMACE,,https://jinko.ai/as-FM2K-7NJf/
+kmScaledData-IMPROVE-IT-Giugliano-2018-MaceCHD-diabetes-IndividualPatientData,isMACE,timeOfMACE,isDiabetes == 1,https://jinko.ai/as-SUSF-TLOH/
+kmScaledData-IMPROVE-IT-Giugliano-2018-MaceCHD-diabetes_inf75y-IndividualPatientData,isMACE,timeOfMACE,(isDiabetes == 1) And (ageInit < 75),https://jinko.ai/as-8WRi-8fY9/0/
+kmScaledData-IMPROVE-IT-Giugliano-2018-MaceCHD-diabetes_sup75y-IndividualPatientData,isMACE,timeOfMACE,(isDiabetes == 1) And (ageInit >= 75),https://jinko.ai/as-8WRi-8fY9/
+kmScaledData-IMPROVE-IT-Giugliano-2018-MaceCHD-noDiabetes-IndividualPatientData,isMACE,timeOfMACE,isDiabetes == 0,https://jinko.ai/as-SUSF-TLOH/
+kmScaledData-IMPROVE-IT-Giugliano-2018-MaceCHD-noDiabetes_inf75y-IndividualPatientData,isMACE,timeOfMACE,(isDiabetes == 0) And (ageInit < 75),https://jinko.ai/as-8WRi-8fY9/
+kmScaledData-IMPROVE-IT-Giugliano-2018-MaceCHD-noDiabetes_sup75y-IndividualPatientData,isMACE,timeOfMACE,(isDiabetes == 0) And (ageInit >= 75),https://jinko.ai/as-8WRi-8fY9/

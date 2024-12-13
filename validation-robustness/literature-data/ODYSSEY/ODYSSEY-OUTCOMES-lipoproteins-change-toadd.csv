@@ -1,0 +1,6 @@
+"Control-Variable","Treatment-Variable","Condition","Value","ValueType","LowRange","HighRange","RangeType","Ref"
+"ODYSSEY-OUTCOMES-placebo_valueLDLcCorrectedMassM4","ODYSSEY-OUTCOMES-alirocumab_valueLDLcCorrectedMassM4","(ODYSSEY-OUTCOMES-placebo_baselineLpaMass < 6.7)",53,"Median",36.5,69.5,"IQR","https://jinko.ai/as-10CW-AUwV"
+"ODYSSEY-OUTCOMES-placebo_valueLDLcCorrectedMassM4","ODYSSEY-OUTCOMES-alirocumab_valueLDLcCorrectedMassM4","(ODYSSEY-OUTCOMES-placebo_baselineLpaMass < 21.2) And (ODYSSEY-OUTCOMES-placebo_baselineLpaMass >= 6.7)",53,"Median",36.5,69.5,"IQR","https://jinko.ai/as-10CW-AUwV"
+"ODYSSEY-OUTCOMES-placebo_valueLDLcCorrectedMassM4","ODYSSEY-OUTCOMES-alirocumab_valueLDLcCorrectedMassM4","(ODYSSEY-OUTCOMES-placebo_baselineLpaMass < 59.6) And (ODYSSEY-OUTCOMES-placebo_baselineLpaMass >= 21.2)",51,"Median",35,67,"IQR","https://jinko.ai/as-10CW-AUwV"
+"ODYSSEY-OUTCOMES-placebo_valueLDLcCorrectedMassM4","ODYSSEY-OUTCOMES-alirocumab_valueLDLcCorrectedMassM4","(ODYSSEY-OUTCOMES-placebo_baselineLpaMass >= 59.6)",48,"Median",32,64,"IQR","https://jinko.ai/as-10CW-AUwV"
+"ODYSSEY-OUTCOMES-placebo_valueLDLcCorrectedMassM4","ODYSSEY-OUTCOMES-alirocumab_baselineLDLcCorrectedMass","isDiabetes == 1",0.65,"Median",NA,NA,"NA","https://jinko.ai/as-FTI4-9iY1/"

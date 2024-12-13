@@ -1,0 +1,159 @@
+Variable,Time,TimeWeeks,Value,ValueType,LowRange,HighRange,RangeType,Condition,Ref
+FOURIER-evolocumab_valueLDLcUncorrectedMassW0,0,0,92,Median,91.5,92.5,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW4,0.076923076923077,4,32,Median,31.5,32.5,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW12,0.230769230769231,12,29,Median,28.5,29.5,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW24,0.461538461538462,24,29,Median,28.4,29.4,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW48,0.919299847792998,48,30,Median,29.4,30.4,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW72,1.38461538461538,72,30,Median,29.5,30.5,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW96,1.84615384615385,96,31,Median,30.5,31.5,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW120,2.30769230769231,120,32,Median,31,33,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedMassW144,2.76923076923077,144,33,Median,32,34,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW0,0,0,92,Median,91.5,92.5,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW4,0.076923076923077,4,87.08,Median,86.17,88.14,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW12,0.230769230769231,12,88.14,Median,87.08,89.05,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW24,0.461538461538462,24,90.12,Median,89.21,91.03,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW48,0.919299847792998,48,89.05,Median,88.14,90.12,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW72,1.38461538461538,72,90.12,Median,89.05,91.03,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW96,1.84615384615385,96,90.12,Median,89.21,91.03,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW120,2.30769230769231,120,90.12,Median,88.9,91.03,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-placebo_valueLDLcUncorrectedMassW144,2.76923076923077,144,90.12,Median,89.05,91.03,CI,,https://jinko.ai/as-vHV1-dfeJ
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW0,0,0,2.33,Median,2.31,2.35,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW4,0.076923076923077,4,0.85,Median,0.83,0.88,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW12,0.230769230769231,12,0.75,Median,0.73,0.78,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW24,0.461538461538462,24,0.78,Median,0.75,0.8,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW48,0.919299847792998,48,0.78,Median,0.75,0.8,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW72,1.38461538461538,72,0.78,Median,0.76,0.8,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW96,1.84615384615385,96,0.84,Median,0.8,0.85,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW120,2.30769230769231,120,0.8,Median,0.78,0.86,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW144,2.76192541856925,144,0.86,Median,0.84,0.92,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW0,0,0,2.33,Median,2.31,2.35,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW4,0.076923076923077,4,2.2,Median,2.18,2.23,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW12,0.230769230769231,12,2.25,Median,2.23,2.27,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW24,0.461538461538462,24,2.25,Median,2.23,2.28,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW48,0.919299847792998,48,2.25,Median,2.23,2.28,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW72,1.38461538461538,72,2.25,Median,2.23,2.28,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW96,1.84615384615385,96,2.25,Median,2.23,2.28,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW120,2.30769230769231,120,2.25,Median,2.23,2.31,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW144,2.76192541856925,144,2.28,Median,2.23,2.31,CI,isDiabetes == 1,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW0,0,0,2.39,Median,2.37,2.41,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW4,0.076923076923077,4,0.8,Median,0.79,0.83,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW12,0.230769230769231,12,0.73,Median,0.71,0.75,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW24,0.461538461538462,24,0.73,Median,0.72,0.75,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW48,0.919299847792998,48,0.75,Median,0.73,0.78,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW72,1.38461538461538,72,0.78,Median,0.75,0.8,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW96,1.84615384615385,96,0.8,Median,0.78,0.83,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW120,2.30769230769231,120,0.83,Median,0.8,0.85,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW144,2.76192541856925,144,0.84,Median,0.8,0.88,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW0,0,0,2.41,Median,2.39,2.43,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW4,0.076923076923077,4,2.31,Median,2.28,2.33,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW12,0.230769230769231,12,2.33,Median,2.31,2.34,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW24,0.461538461538462,24,2.36,Median,2.33,2.38,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW48,0.919299847792998,48,2.36,Median,2.33,2.38,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW72,1.38461538461538,72,2.36,Median,2.34,2.38,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW96,1.84615384615385,96,2.38,Median,2.36,2.4,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW120,2.30769230769231,120,2.38,Median,2.36,2.41,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW144,2.76192541856925,144,2.38,Median,2.36,2.41,CI,isDiabetes == 0,https://jinko.ai/as-0uXd-OwD5
+FOURIER-evolocumab_valueLDLcUncorrectedMassW0,0,0,91,Median,90,92,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW4,0.076923076923077,4,32.19,Median,31.03,33.92,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW12,0.230769230769231,12,28.23,Median,27.07,28.91,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW24,0.461538461538462,24,29,Median,27.94,29.97,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW48,0.919299847792998,48,29.1,Median,28.04,30.06,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW72,1.38461538461538,72,28.91,Median,27.94,31.03,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW96,1.84615384615385,96,29.97,Median,28.04,30.93,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW120,2.30769230769231,120,29.2,Median,27.94,31.03,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW144,2.76192541856925,144,32.86,Median,31.03,35.08,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW0,0,0,91,Median,90,92,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW4,0.076923076923077,4,86.06,Median,85,86.06,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW12,0.230769230769231,12,86.99,Median,86.06,87.92,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW24,0.461538461538462,24,87.79,Median,86.99,90.18,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW48,0.919299847792998,48,87.92,Median,86.99,90.04,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW72,1.38461538461538,72,86.99,Median,86.06,87.79,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW96,1.84615384615385,96,87.92,Median,86.99,90.04,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW120,2.30769230769231,120,86.99,Median,85.13,88.85,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW144,2.76192541856925,144,87.92,Median,85.13,90.97,CI,eGFR < 60,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW0,0,0,91.5,Median,90.5,92.5,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW4,0.076923076923077,4,31.13,Median,30.16,32.96,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW12,0.230769230769231,12,28.23,Median,27.07,28.91,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW24,0.461538461538462,24,28.04,Median,27.94,29.97,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW48,0.919299847792998,48,29.1,Median,28.04,30.06,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW72,1.38461538461538,72,28.91,Median,27.94,31.03,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW96,1.84615384615385,96,29.97,Median,28.04,30.93,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW120,2.30769230769231,120,30.93,Median,30.16,31.99,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW144,2.76192541856925,144,31.99,Median,30.16,35.08,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW0,0,0,91.5,Median,90.5,92.5,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW4,0.076923076923077,4,87.12,Median,86.06,87.92,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW12,0.230769230769231,12,88.05,Median,87.79,88.85,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW24,0.461538461538462,24,88.85,Median,87.12,89.91,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW48,0.919299847792998,48,88.98,Median,87.12,90.04,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW72,1.38461538461538,72,88.85,Median,87.92,90.04,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW96,1.84615384615385,96,88.85,Median,87.12,89.91,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW120,2.30769230769231,120,88.85,Median,85.13,89.91,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW144,2.76192541856925,144,88.98,Median,85,91.11,CI,(eGFR < 90) And (eGFR >= 60),https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW0,0,0,92.5,Median,91.5,93.5,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW4,0.076923076923077,4,34.02,Median,33.05,35.08,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW12,0.230769230769231,12,31.22,Median,30.16,31.99,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW24,0.461538461538462,24,30.16,Median,29,31.03,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW48,0.919299847792998,48,31.99,Median,31.03,33.05,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW72,1.38461538461538,72,31.99,Median,30.06,32.86,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW96,1.84615384615385,96,34.02,Median,32.96,35.08,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW120,2.30769230769231,120,35.08,Median,33.92,36.91,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW144,2.76192541856925,144,35.08,Median,32.09,36.91,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW0,0,0,92.5,Median,91.5,93.5,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW4,0.076923076923077,4,89.12,Median,88.05,90.04,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW12,0.230769230769231,12,90.04,Median,88.85,91.11,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW24,0.461538461538462,24,91.11,Median,89.91,92.04,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW48,0.919299847792998,48,91.11,Median,90.04,92.04,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW72,1.38461538461538,72,92.04,Median,90.97,92.83,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW96,1.84615384615385,96,93.1,Median,90.97,93.89,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW120,2.30769230769231,120,92.96,Median,92.04,94.96,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-placebo_valueLDLcUncorrectedMassW144,2.76192541856925,144,92.96,Median,88.85,95.88,CI,eGFR >= 90,https://jinko.ai/as-TViV-4vto
+FOURIER-evolocumab_valueLDLcUncorrectedMassW0,0,0,94,Median,81,112,IQR,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW4,0.076923076923077,4,33.13,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW12,0.230769230769231,12,30.04,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW24,0.461538461538462,24,30.99,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW48,0.919299847792998,48,31.11,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW72,1.38461538461538,72,31.23,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW96,1.84615384615385,96,32.06,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW120,2.30769230769231,120,34.09,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedMassW144,2.76192541856925,144,34.21,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW0,0,0,94,Median,81,112,IQR,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW4,0.076923076923077,4,88.926,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW12,0.230769230769231,12,89.99,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW24,0.461538461538462,24,91.18,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW48,0.919299847792998,48,90.94,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW72,1.38461538461538,72,90.94,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW96,1.84615384615385,96,91.06,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW120,2.30769230769231,120,92.01,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-placebo_valueLDLcUncorrectedMassW144,2.76192541856925,144,89.99,Median,,,,isPriorPad ==  1,https://jinko.ai/as-WSJx-KBhM
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW0,0,0,2.4,Median,2.1,2.8,IQR,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW4,0.076923076923077,4,0.82,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW12,0.230769230769231,12,0.73,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW24,0.461538461538462,24,0.76,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW48,0.919299847792998,48,0.76,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW72,1.38461538461538,72,0.78,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW96,1.84615384615385,96,0.83,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW120,2.30769230769231,120,0.86,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW0,0,144,2.4,Median,2.1,2.8,IQR,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW4,0.076923076923077,0,2.25,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW12,0.230769230769231,4,2.28,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW24,0.461538461538462,12,2.3,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW48,0.919299847792998,24,2.31,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW72,1.38461538461538,48,2.31,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW96,1.84615384615385,72,2.31,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW120,2.30769230769231,96,2.31,Median,,,,isPriorCbvd == 1,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW0,0,120,2.4,Median,2.1,2.8,IQR,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW4,0.076923076923077,144,0.83,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW12,0.230769230769231,0,0.75,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW24,0.461538461538462,4,0.75,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW48,0.919299847792998,12,0.78,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW72,1.38461538461538,24,0.78,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW96,1.84615384615385,48,0.8,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-evolocumab_valueLDLcUncorrectedSubstanceW120,2.30769230769231,72,0.83,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW0,0,96,2.4,Median,2.1,2.8,IQR,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW4,0.076923076923077,120,2.25,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW12,0.230769230769231,144,2.3,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW24,0.461538461538462,0,2.33,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW48,0.919299847792998,4,2.3,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW72,1.38461538461538,12,2.33,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW96,1.84615384615385,24,2.33,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU
+FOURIER-placebo_valueLDLcUncorrectedSubstanceW120,2.30769230769231,48,2.33,Median,,,,isPriorCbvd == 0,https://jinko.ai/as-9Ufn-n1GU

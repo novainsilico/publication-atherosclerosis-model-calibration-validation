@@ -1,0 +1,17 @@
+Outcome,Reference,HR,LowBoundCI,HighBoundCI,Condition
+MACE,Observed,1.63,1.32,1.96,Age>=65
+MACE,Observed,1.19,0.95,1.46,MaleSex
+MACE,Observed,1.49,1.24,1.8,Diabetes
+MACE,Observed,1.38,1.11,1.78,Smoker
+MACE,Observed,1.38,1.13,1.71,Hypertension
+MACE,Observed,1.87,1.52,2.23,CKD
+MACE,Observed,1.58,0.98,2.43,PriorCBVD
+MACE,Observed,1.19,1,1.56,BaselineLDL>=80
+MACE,Simulated,1.39,1.16,1.65,Age>=65
+MACE,Simulated,1.18,0.95,1.45,MaleSex
+MACE,Simulated,1.38,1.15,1.64,Diabetes
+MACE,Simulated,1.22,1,1.49,Smoker
+MACE,Simulated,1.23,1.12,1.49,Hypertension
+MACE,Simulated,1.25,1.01,1.55,CKD
+MACE,Simulated,1.35,0.93,1.96,PriorCBVD
+MACE,Simulated,1.27,1.06,1.52,BaselineLDL>=80
