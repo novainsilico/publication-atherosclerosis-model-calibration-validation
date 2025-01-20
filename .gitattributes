@@ -1,2 +1,1 @@
-validation-robustness/vpop-data/ODYSSEY/scalars-ODYSSEY-OUTCOMES-valid-merged.zip filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text

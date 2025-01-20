@@ -143,22 +143,3 @@ Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xm
                     )
 dev.off()
 ```
-
-```{r}
-plot.df <- read.csv("forest-plot-of-MACE-CANTOS.csv")
-
-
-svg("forest-plot-CANTOS.svg", width=5.5, height=4.3)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
-                      geom_pointrange(pch = 15, size = 1) +
-                      geom_pointrange(data = plot.df[plot.df$Reference == "Simulated", ], color = "#f2b723", fill="#f2b723", pch = 25, size = .8, stroke = 1) +
-                      scale_size(range = c(0, 1)) +
-                      geom_vline(xintercept = 1, linetype = "dashed", color = "black", lwd=1.5) +
-                      xlab("") +
-                      theme_minimal() +
-                      ylab("") +
-                    scale_y_discrete(limits = rev(unique(plot.df$Condition))) +
-                      theme(panel.grid.major.y = element_blank())
-                    )
-dev.off()
-```

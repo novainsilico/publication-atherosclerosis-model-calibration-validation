@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = F, warning = F)
 librarian::shelf(ggplot2, gplots, JinkoStats, cmprsk, survival, survminer, knitr, yaml, boot, confintr, testthat, parallel,tidyr,dplyr) # this line will install and/or update all the packages that you list here (included those from github/lab)
 
 # choose one config file
-# config.file = "iconfig-validation-CANTOS.yaml"
 # config.file <- "iconfig-validation-ORION11.yaml"
 config.file = "iconfig-validation-ODYSSEY-OUTCOMES.yaml"
 # config.file = "iconfig-validation-FOURIER-OLE.yaml"
@@ -77,23 +76,6 @@ scalars.df <- scalars.df[!is.na(scalars.df[,paste0(Ctrl.Arm.name,"_isMI")]),]
 ```
 
 ```{r add-timeVar}
-if(Study.name == "CANTOS"){ #TODO
-  scalars.df[,"CANTOS-placebo_obsTimeOfFatalMI"] = 
-    sapply(c(1:nrow(scalars.df)),function(i){
-    ifelse(scalars.df[i,"CANTOS-placebo_isMI"] & scalars.df[i,"CANTOS-placebo_isFatalMI"] == 1,
-         scalars.df[i,"CANTOS-placebo_obsTimeOfMI"],
-         scalars.df[i,"CANTOS-placebo_timeOfCvDeath"])})
-  
-  
-  scalars.df[,"CANTOS-placebo_obsTimeOfFatalIscStroke"] =
-    sapply(c(1:nrow(scalars.df)),function(i){
-    ifelse(scalars.df[i,"CANTOS-placebo_isIscStroke"] & scalars.df[i,"CANTOS-placebo_isFatalIscStroke"] == 1,
-         scalars.df[i,"CANTOS-placebo_obsTimeOfIscStroke"],
-         scalars.df[i,"CANTOS-placebo_timeOfCvDeath"])})
-
-  # scalars.df[,"CANTOS-placebo_obsTimeOfNonFatalIscStroke"] = NA
-}
-
 if(Study.name == "ODYSSEY-OUTCOMES"){
 
   scalars.df[,"ODYSSEY-OUTCOMES-placebo_isNonFatalMI"] =
@@ -147,10 +129,6 @@ if(Study.name == "ORION11"){
   scalars.df[, paste0(Ctrl.Arm.name, "_isRVALLT")] <- NA
   scalars.df[, paste0(Ctrl.Arm.name, "_isAVALLT")] <- NA
   scalars.df[, paste0(Ctrl.Arm.name, "_baselineApoBMass")] <- NA
-}
-
-if(Study.name == "CANTOS"){
-  scalars.df[, "isUncontrolledHighBloodPressure"] <- (scalars.df$systolicBloodPressure > 140 | scalars.df$diastolicBloodPressure > 90)
 }
 
 # Add descriptive variables
@@ -498,49 +476,6 @@ if (paste0(Study.name, "-hazard-ratios.csv") %in% list.files(inputFolder) & isCo
   )
 
   kable(hrComparison.df, "simple", caption = "Hazard ratio comparison")
-}
-```
-
-```{r subgroup hazard ratio (cantos)}
-if (paste0(Study.name, "-subgroup-hazard-ratios.csv") %in% list.files(inputFolder) & isCompareOutput) {
-  set.seed(seed.int)
-
-  sghr.df <- read.csv(paste0(inputFolder, Study.name, "-subgroup-hazard-ratios.csv"))
-  sghr.df$Event <- gsub("FatalMI","FatalMI",sghr.df$Event)
-  sghr.df <- sghr.df[sapply(sghr.df$Event, FUN = function(e) {
-    isOutputInSimData(arms[1], e, names(scalars.df))
-  }), ]
-
-    
-  # test
-  # compareOneSubgroupHrLine(sghr.line = sghr.df[2,], simData.df= scalars.df, Arm.name = Ctrl.Arm.name)
-
-  # parallel execution
-  # cl <- makeCluster(4)
-  # clusterExport(cl, varlist = c("sghr.df", "scalars.df", "Ctrl.Arm.name", "Trmt.Arm.name", "compareOneHrLine", "addVarOutcomeBefore", "getSimHR", "getSimHrateBootDistrib", "getBootHR", "Survival.Bootstrap", "nBoot", "%>%", "Coverage.Precision.Validation", "between", "parseCondition", "parseOneCondition", "parseOneConditionSide"))
-
-  sghrComparison.df <- sapply(c(1:nrow(sghr.df)),
-    FUN = function(l) {
-      print(paste(l, "/", nrow(sghr.df)))
-      compareOneSubgroupHrLine(
-        sghr.line = sghr.df[l, ],
-        simData.df = scalars.df,
-        Arm.name = Ctrl.Arm.name
-      )
-    }
-  )
-  # stopCluster(cl)
-  
-  
-
-  write.csv(
-    x = t(sghrComparison.df),
-    file = paste0(outputFolder,"valid-subgroup-hazard-ratios.csv"),
-    row.names = F,
-    quote = F
-  )
-
-  kable(sghrComparison.df, "simple", caption = "Hazard ratio coverage and precision")
 }
 ```
 
