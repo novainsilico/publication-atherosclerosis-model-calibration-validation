@@ -1,0 +1,12 @@
+CV event,5-year incidence (%) in placebo arm,5-year incidence (%) in inclisiran arm,HR and associated uncertainty,Relative risk reduction (%),Absolute risk reduction (%),NNT
+3P-MACE,14.91,11.33,0.75 (low),25.2,3.58,28
+CV death,4.49,4.18,0.93 (medium),7.1,0.31,323
+   fatal MI,0.53,0.35,0.66 (medium),34.3,0.18,"
+"
+   fatal IS,0.52,0.38,0.72 (high),27.7,0.14,"
+"
+    other causes,3.47,3.47,1.00 (medium),0.0,0,"
+"
+Fatal or nonfatal MI,8.57,5.66,0.65 (low),34.8,2.91,34
+Fatal or nonfatal IS,3.44,2.56,0.74 (medium),26.0,0.88,114
+MALE,0.82,0.54,0.66 (medium),34.1,0.28,357

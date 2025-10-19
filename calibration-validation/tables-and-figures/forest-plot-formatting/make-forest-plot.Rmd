@@ -1,7 +1,6 @@
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, fig.height = 3.5, fig.width = 4)
-source('../data-analysis/data-analysis-config.R')
 ```
 
 ```{r}
@@ -13,18 +12,17 @@ x_range.vec <- c(min(plot.df$LowBoundCI), max(max(plot.df$HighBoundCI), 1))
 
 
 svg("forest-plot-of-MACE-FOURIER.svg", width=5.5, height=8.2)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
+ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
                       geom_pointrange(pch = 15, size = 1) +
                       geom_point(data = plot.df[plot.df$Reference == "Simulated", ], color = "#f2b723", fill="#f2b723", pch = 25, size = 3, stroke = 1) +
                       scale_size(range = c(0, 1)) +
-                      xlim(x_range.vec) + 
+                      xlim(x_range.vec) +
                       geom_vline(xintercept = 1, linetype = "dashed", color = "black", lwd=1.5) +
                       xlab("") +
                       theme_minimal() +
                       ylab("") +
                     scale_y_discrete(limits = rev(unique(plot.df$Condition))) +
                       theme(panel.grid.major.y = element_blank())
-                    )
 # print(p)
 dev.off()
 ```
@@ -38,18 +36,17 @@ x_range.vec <- c(min(plot.df$LowBoundCI), max(max(plot.df$HighBoundCI), 1))
 
 
 svg("forest-plot-of-CV-death-FOURIER.svg", width=5.5, height=7.2)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
+ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
                       geom_pointrange(pch = 15, size = 1) +
                       geom_point(data = plot.df[plot.df$Reference == "Simulated", ], color = "#f2b723", fill="#f2b723", pch = 25, size = 3, stroke = 1) +
                       scale_size(range = c(0, 1)) +
-                      xlim(x_range.vec) + 
+                      xlim(x_range.vec) +
                       geom_vline(xintercept = 1, linetype = "dashed", color = "black", lwd=1.5) +
                       xlab("") +
                       theme_minimal() +
                       ylab("") +
                     scale_y_discrete(limits = rev(unique(plot.df$Condition))) +
                       theme(panel.grid.major.y = element_blank())
-                    )
 # print(p)
 dev.off()
 ```
@@ -63,18 +60,17 @@ x_range.vec <- c(min(plot.df$LowBoundCI), max(max(plot.df$HighBoundCI), 1))
 
 
 svg("forest-plot-of-MACE-ODYSSEY.svg", width=5.5, height=7.8)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
+ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
                       geom_pointrange(pch = 15, size = 1) +
                       geom_pointrange(data = plot.df[plot.df$Reference == "Simulated", ], color = "#f2b723", fill="#f2b723", pch = 25, size = .8, stroke = 1) +
                       scale_size(range = c(0, 1)) +
-                      xlim(x_range.vec) + 
+                      xlim(x_range.vec) +
                       geom_vline(xintercept = 1, linetype = "dashed", color = "black", lwd=1.5) +
                       xlab("") +
                       theme_minimal() +
                       ylab("") +
                     scale_y_discrete(limits = rev(unique(plot.df$Condition))) +
                       theme(panel.grid.major.y = element_blank())
-                    )
 dev.off()
 ```
 
@@ -88,18 +84,17 @@ x_range.vec <- c(min(plot.df$LowBoundCI), max(max(plot.df$HighBoundCI), 1))
 
 
 svg("forest-plot-of-CV-death-ODYSSEY.svg", width=6.2, height=4.5)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
+ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
                       geom_pointrange(pch = 15, size = 1) +
                       geom_pointrange(data = plot.df[plot.df$Reference == "Simulated", ], color = "#f2b723", fill="#f2b723", pch = 25, size = .8, stroke = 1) +
                       scale_size(range = c(0, 1)) +
-                      xlim(x_range.vec) + 
+                      xlim(x_range.vec) +
                       geom_vline(xintercept = 1, linetype = "dashed", color = "black", lwd=1.5) +
                       xlab("") +
                       theme_minimal() +
                       ylab("") +
                     scale_y_discrete(limits = rev(unique(plot.df$Condition))) +
                       theme(panel.grid.major.y = element_blank())
-                    )
 dev.off()
 ```
 
@@ -108,7 +103,7 @@ dev.off()
 HRsresults.dtf <- read.csv("../SD/article-sirius-trials45-result/forest-plot-of-MACE-sirius-trial5.csv")
 plot.df <-  HRsresults.dtf[HRsresults.dtf$Outcome == "MACE", ]
 svg("forest-plot-of-MACE-sirius-trial5.svg", width=5.5, height=8.2)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, y = Condition)) +
+ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, y = Condition)) +
                       geom_pointrange(pch = 15, size = 1) +
                       geom_point(data = plot.df[plot.df$Reference == "Simulated", ], color = "black", fill="black", pch = 15, size = 1.5, stroke = 1) +
                       scale_size(range = c(0, 1)) +
@@ -119,7 +114,7 @@ Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, y 
                       xlim(c(0.95,1.05))+
                     scale_y_discrete(limits = rev(unique(plot.df$Condition))) +
                       theme(panel.grid.major.y = element_blank())
-                    )
+
 # print(p)
 dev.off()
 ```
@@ -130,7 +125,7 @@ plot.df <- read.csv("forest-plot-IMPROVE-IT.csv")
 
 
 svg("forest-plot-IMPROVE-IT.svg", width=5.5, height=4.3)
-Plot.NovaTheme(ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
+ggplot(plot.df[plot.df$Reference == "Observed", ], aes(x = HR, xmin = LowBoundCI, xmax = HighBoundCI, y = Condition)) +
                       geom_pointrange(pch = 15, size = 1) +
                       geom_pointrange(data = plot.df[plot.df$Reference == "Simulated", ], color = "#f2b723", fill="#f2b723", pch = 25, size = .8, stroke = 1) +
                       scale_size(range = c(0, 1)) +

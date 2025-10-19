@@ -1,0 +1,15 @@
+Arm,Time,Value,Low,High
+Placebo,0,91.1,78.9,115.7
+Placebo,0.25,91.1,78.9,115.7
+Placebo,0.5,91.1,78.9,115.7
+Placebo,1,91.1,78.9,115.7
+Placebo,2,91.1,78.9,115.7
+Placebo,3,91.1,78.9,115.7
+Placebo,5,91.1,79.0,115.7
+Inclisiran,0,91.1,78.9,115.7
+Inclisiran,0.25,53.4,26.5,72.6
+Inclisiran,0.5,47.8,22.2,70.4
+Inclisiran,1,47.7,22.1,70.3
+Inclisiran,2,47.8,22.1,70.1
+Inclisiran,3,47.9,22.2,70.4
+Inclisiran,5,48.3,22.5,70.2

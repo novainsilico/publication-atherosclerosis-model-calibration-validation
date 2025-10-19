@@ -1,0 +1,68 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+    \setmainfont{Inter}
+\usepackage{unicode-math}
+	\setmathfont{Fira Sans}
+\usepackage{newtxsf}
+\usepackage[symbol]{footmisc}
+\usepackage[table]{xcolor}
+\setlength{\arrayrulewidth}{1mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{2.5}
+\newcolumntype{s}{>{\columncolor[HTML]{AAACED}} p{3cm}}
+\arrayrulecolor[HTML]{DB5800}
+\usepackage{tabularray}
+\usepackage{makecell}
+
+\definecolor{lightGray2}{HTML}{E7E6E6}
+
+\begin{document}
+
+\begin{tblr}{
+  colspec={|c|c|c|cc|cc|},
+  hline{0,3,4,7,9,11,13,15,18,21,24,27},
+  cell{3,5,7,9,11,13,15,17,19,21,23,25,27}{2,3,4,5,6,7}={bg=lightGray2},
+  cell{1}{1} = {r=2,c=2}{m},
+  cell{1}{3} = {r=2}{m},
+  cell{1}{4} = {c=2}{m,halign=m},
+  cell{1}{6,7} = {r=2}{m},
+  cell{3}{1} = {c=2}{m},
+  cell{4}{1} = {r=3}{m},
+  cell{7}{1} = {r=2}{m},
+  cell{9}{1} = {r=2}{m},
+  cell{11}{1} = {r=2}{m},
+  cell{13}{1} = {r=2}{m},
+  cell{15}{1} = {r=3}{m},
+  cell{18}{1} = {r=3}{m},
+  cell{21}{1} = {r=3}{m},
+  cell{24}{1} = {r=3}{m},
+}
+\bf Subgroup & & \bf \% N & \bf 3P-MACE Rate (\%) &  & \bf Hazard Ratio & \bf \makecell{95\% PPI\\Uncertainty} \\  %1
+ & & & \bf Inclisiran & \bf Placebo &  & \\
+  \textbf{Overall} $\mathsf{(N = 204691)}$ & & $\mathsf{100}$  & $\mathsf{11.33}$ & $\mathsf{14.91}$ & $\mathsf{0.748}$ & Low\\ %3
+\textbf{Age} & $\leq \mathsf{65}$ y & $\mathsf{60.8}$ & $\mathsf{9.86}$ & $\mathsf{13.12}$ & $\mathsf{0.740}$ & Low \\
+    & $\mathsf{65}$--$\mathsf{75}$ y & $\mathsf{31.2}$  & $\mathsf{12.82}$ & $\mathsf{16.80}$ & $\mathsf{0.749}$ & Medium \\ %5
+    & $> \mathsf{75}$ y & $\mathsf{8.0}$ & $\mathsf{16.79}$ & $\mathsf{21.20}$ & $\mathsf{0.775}$ & Medium \\
+\textbf{Sex} & Male & $\mathsf{75.0}$ & $\mathsf{11.83}$ & $\mathsf{15.51}$ & $\mathsf{0.750}$ & Low \\ % 7
+    & Female & $\mathsf{25.0}$  & $\mathsf{9.85}$ & $\mathsf{13.12}$ & $\mathsf{0.739}$ & Medium \\
+\textbf{Diabetes} & Yes & $\mathsf{36.8}$  & $\mathsf{14.71}$ & $\mathsf{18.93}$ & $\mathsf{0.761}$ & Low \\ %9
+    & No & $\mathsf{63.2}$  & $\mathsf{9.37}$ & $\mathsf{12.57}$ & $\mathsf{0.735}$ & Low \\
+\textbf{Current smoker} & Yes & $\mathsf{28.8}$  & $\mathsf{12.99}$ & $\mathsf{17.03}$ & $\mathsf{0.749}$ & Low \\%11
+    & No & $\mathsf{71.2}$  & $\mathsf{10.66}$ & $\mathsf{14.05}$ & $\mathsf{0.747}$ & Low \\
+\textbf{Hypertension}\textsuperscript{*} & Yes & $\mathsf{33.3}$ & $\mathsf{13.35}$ & $\mathsf{17.52}$ & $\mathsf{0.747}$ & Low \\ %13
+    & No & $\mathsf{66.7}$  & $\mathsf{10.33}$ & $\mathsf{13.60}$ & $\mathsf{0.748}$ & Low \\
+\textbf{eGFR} & $\leq \mathsf{30}$ & $\mathsf{1.0}$  & $\mathsf{19.04}$ & $\mathsf{22.38}$ & $\mathsf{0.835}$ & High \\ %15
+    & $\mathsf{30}$--$\mathsf{60}$ & $\mathsf{20.4}$  & $\mathsf{13.13}$ & $\mathsf{17.02}$ & $\mathsf{0.757}$ & Medium \\
+    & $> \mathsf{60}$ & $\mathsf{78.6}$ & $\mathsf{10.77}$ & $\mathsf{14.26}$ & $\mathsf{0.743}$ & Low \\
+\textbf{Medical history} & MI & $\mathsf{82.4}$  & $\mathsf{11.26}$ & $\mathsf{14.89}$ & $\mathsf {0.744}$ & Low \\%18
+    & IS & $\mathsf{19.2}$  & $\mathsf{13.44}$ & $\mathsf{17.01}$ & $\mathsf{0.776}$ & Medium \\
+    & PAD & $\mathsf{13.7}$  & $\mathsf{17.62}$ & $\mathsf{22.88}$ & $\mathsf{0.750}$ & Medium \\
+\makecell{\textbf{Number of affected}\\\textbf{vascular beds}\textsuperscript{†}} & $\mathsf 1$ bed & $\mathsf{85.0}$ & $\mathsf{10.00}$ & $\mathsf{13.27}$ & $\mathsf{0.742}$ & Low \\ %18
+    & $\mathsf 2$ beds & $\mathsf{14.6}$  & $\mathsf{18.54}$ & $\mathsf{23.77}$ & $\mathsf{0.759}$ & Medium  \\
+    & $\mathsf 3$ beds & $\mathsf{0.4}$  & $\mathsf{32.34}$ & $\mathsf{39.67}$ & $\mathsf{0.778}$  & High \\
+\makecell{\textbf{Number of}\\\textbf{risk factors}\textsuperscript{‡}} & $\mathsf 0$--$\mathsf 1$ & $\mathsf{50.9}$  & $\mathsf{8.19}$ & $\mathsf{10.75}$ & $\mathsf{0.753}$ & Low  \\%18
+    & $\mathsf 2$--$\mathsf 4$ & $\mathsf{48.9}$ & $\mathsf{14.53}$ & $\mathsf{19.13}$ & $\mathsf{0.743}$ & Low  \\
+    & $\geq \mathsf 5$ & $\mathsf{0.2}$  & $\mathsf{28.29}$ & $\mathsf{40.35}$ & $\mathsf{0.664}$ & High \\
+\end{tblr}  
+
+\end{document} 
