@@ -1,0 +1,14 @@
+subgroup,delta,low,high
+isAgeAbove65,-0.02,-0.124,0.123
+isAgeAbove70,-0.039,-0.17,0.117
+isMaleSex,-0.014,-0.174,0.142
+isDiabetes,-0.036,-0.171,0.112
+isSmoking,-0.004,-0.139,0.13
+isUncontrolledBloodPressure,0.002,-0.128,0.131
+isEgfrBelow60,-0.026,-0.175,0.125
+isPriorChd,0.028,-0.153,0.208
+isPriorCbvd,-0.048,-0.207,0.124
+isPriorPad,-0.006,-0.14,0.149
+isMoreThanOneBed,-0.003,-0.179,0.171
+isMoreThanOneRF,0.014,-0.124,0.198
+isLDLcAboveMedian,0.074,-0.046,0.172

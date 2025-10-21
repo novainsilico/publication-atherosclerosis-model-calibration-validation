@@ -1,0 +1,6 @@
+Outcome,Reference,HR,LowBoundCI,HighBoundCI,Condition
+MACE,Simulated,0.748,,,Overall
+MACE,Simulated,0.795,,,Q1
+MACE,Simulated,0.764,,,Q2
+MACE,Simulated,0.754,,,Q3
+MACE,Simulated,0.699,,,Q4
