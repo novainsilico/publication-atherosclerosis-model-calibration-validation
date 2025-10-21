@@ -47,7 +47,7 @@ size_FOURIER = 13780
 
 table['Arm'] = np.array(table['Arm'] == 'RWLLT-ICL', dtype=np.int64)
 table['isAgeAbove65'] = np.array(table['ageInit'] > 65, dtype=np.int64)
-table['isAgeAbove70'] = np.array(table['ageInit'] > 70, dtype=np.int64)
+table['isAgeAbove75'] = np.array(table['ageInit'] > 75, dtype=np.int64)
 table['isEgfrBelow60'] = np.array(table['eGFR'] < 60, dtype=np.int64)
 table['isMoreThanOneBed'] = np.array(table['nbPlaques'] > 1, dtype=np.int64)
 table['isMoreThanOneRF'] = np.array(table['nbRiskFactors'] > 1, dtype=np.int64)
@@ -56,7 +56,7 @@ table_arm0 = table[table['Arm'] == 0]
 table_arm1 = table[table['Arm'] == 1]
 
 print(get_bootstrap_interactions(204691, nb_repetitions, size_FOURIER, 'isAgeAbove65'))
-print(get_bootstrap_interactions(204691, nb_repetitions, size_FOURIER, 'isAgeAbove70'))
+print(get_bootstrap_interactions(204691, nb_repetitions, size_FOURIER, 'isAgeAbove75'))
 print(get_bootstrap_interactions(204691, nb_repetitions, size_FOURIER, 'isMaleSex'))
 print(get_bootstrap_interactions(204691, nb_repetitions, size_FOURIER, 'isDiabetes'))
 print(get_bootstrap_interactions(204691, nb_repetitions, size_FOURIER, 'isSmoking'))

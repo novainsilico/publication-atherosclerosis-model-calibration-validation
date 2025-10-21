@@ -1,6 +1,6 @@
 subgroup,delta,low,high
 isAgeAbove65,-0.02,-0.124,0.123
-isAgeAbove70,-0.039,-0.17,0.117
+isAgeAbove75,-0.041,-0.208,0.171
 isMaleSex,-0.014,-0.174,0.142
 isDiabetes,-0.036,-0.171,0.112
 isSmoking,-0.004,-0.139,0.13
